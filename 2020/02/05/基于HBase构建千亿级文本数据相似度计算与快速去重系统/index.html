@@ -54,7 +54,7 @@
 <meta property="og:description" content="前言随着大数据时代的到来，数据信息在给我们生活带来便利的同时，同样也给我们带来了一系列的考验与挑战。本文主要介绍了基于 Apache HBase 与 Google SimHash 等多种算法共同实现的一套支持百亿级文本数据相似度计算与快速去重系统的设计与实现。该方案在公司业务层面彻底解决了多主题海量文本数据所面临的存储与计算慢的问题。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-05T12:34:40.000Z">
-<meta property="article:modified_time" content="2020-02-05T13:30:40.780Z">
+<meta property="article:modified_time" content="2020-02-05T13:34:18.767Z">
 <meta property="article:author" content="禅克">
 <meta property="article:tag" content="love">
 <meta name="twitter:card" content="summary">
@@ -228,7 +228,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-02-05 20:34:40 / 修改时间：21:30:40" itemprop="dateCreated datePublished" datetime="2020-02-05T20:34:40+08:00">2020-02-05</time>
+              <time title="创建时间：2020-02-05 20:34:40 / 修改时间：21:34:18" itemprop="dateCreated datePublished" datetime="2020-02-05T20:34:40+08:00">2020-02-05</time>
             </span>
 
           
@@ -242,21 +242,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>随着大数据时代的到来，数据信息在给我们生活带来便利的同时，同样也给我们带来了一系列的考验与挑战。本文主要介绍了基于 Apache HBase 与 Google SimHash 等多种算法共同实现的一套支持百亿级文本数据相似度计算与快速去重系统的设计与实现。该方案在公司业务层面彻底解决了多主题海量文本数据所面临的存储与计算慢的问题。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>随着大数据时代的到来，数据信息在给我们生活带来便利的同时，同样也给我们带来了一系列的考验与挑战。本文主要介绍了基于 Apache HBase 与 Google SimHash 等多种算法共同实现的一套支持百亿级文本数据相似度计算与快速去重系统的设计与实现。该方案在公司业务层面彻底解决了多主题海量文本数据所面临的存储与计算慢的问题。</p>
 <a id="more"></a>
 
-<h1 id="一-面临的问题"><a href="#一-面临的问题" class="headerlink" title="一. 面临的问题"></a>一. 面临的问题</h1><h3 id="1-如何选择文本的相似度计算或去重算法？"><a href="#1-如何选择文本的相似度计算或去重算法？" class="headerlink" title="1. 如何选择文本的相似度计算或去重算法？"></a>1. 如何选择文本的相似度计算或去重算法？</h3><p>常见的有余弦夹角算法、欧式距离、Jaccard 相似度、最长公共子串、编辑距离等。这些算法对于待比较的文本数据不多时还比较好用，但在海量数据背景下，如果每天产生的数据以千万计算，我们如何对于这些海量千万级的数据进行高效的合并去重和相似度计算呢？</p>
-<h3 id="2-如何实现快速计算文本相似度或去重呢？"><a href="#2-如何实现快速计算文本相似度或去重呢？" class="headerlink" title="2. 如何实现快速计算文本相似度或去重呢？"></a>2. 如何实现快速计算文本相似度或去重呢？</h3><p>如果我们选好了相似度计算和去重的相关算法，那我们怎么去做呢？如果待比较的文本数据少，我们简单遍历所有文本进行比较即可，那对于巨大的数据集我们该怎么办呢？遍历很明显是不可取的。</p>
-<h3 id="3-海量数据的存储与快速读写"><a href="#3-海量数据的存储与快速读写" class="headerlink" title="3. 海量数据的存储与快速读写"></a>3. 海量数据的存储与快速读写</h3><h1 id="二-SimHash-算法引入"><a href="#二-SimHash-算法引入" class="headerlink" title="二. SimHash 算法引入"></a>二. SimHash 算法引入</h1><p>基于问题一，我们引入了 SimHash 算法来实现海量文本的相似度计算与快速去重。下面我们简单了解下该算法。</p>
-<h3 id="1-局部敏感哈希"><a href="#1-局部敏感哈希" class="headerlink" title="1. 局部敏感哈希"></a>1. 局部敏感哈希</h3><p>在介绍 SimHash 算法之前，我们先简单介绍下局部敏感哈希是什么。局部敏感哈希的基本思想类似于一种空间域转换思想，LSH 算法基于一个假设，如果两个文本在原有的数据空间是相似的，那么分别经过哈希函数转换以后的它们也具有很高的相似度；相反，如果它们本身是不相似的，那么经过转换后它们应仍不具有相似性。</p>
+<h3 id="一-面临的问题"><a href="#一-面临的问题" class="headerlink" title="一. 面临的问题"></a>一. 面临的问题</h3><h4 id="1-如何选择文本的相似度计算或去重算法？"><a href="#1-如何选择文本的相似度计算或去重算法？" class="headerlink" title="1. 如何选择文本的相似度计算或去重算法？"></a>1. 如何选择文本的相似度计算或去重算法？</h4><p>常见的有余弦夹角算法、欧式距离、Jaccard 相似度、最长公共子串、编辑距离等。这些算法对于待比较的文本数据不多时还比较好用，但在海量数据背景下，如果每天产生的数据以千万计算，我们如何对于这些海量千万级的数据进行高效的合并去重和相似度计算呢？</p>
+<h4 id="2-如何实现快速计算文本相似度或去重呢？"><a href="#2-如何实现快速计算文本相似度或去重呢？" class="headerlink" title="2. 如何实现快速计算文本相似度或去重呢？"></a>2. 如何实现快速计算文本相似度或去重呢？</h4><p>如果我们选好了相似度计算和去重的相关算法，那我们怎么去做呢？如果待比较的文本数据少，我们简单遍历所有文本进行比较即可，那对于巨大的数据集我们该怎么办呢？遍历很明显是不可取的。</p>
+<h4 id="3-海量数据的存储与快速读写"><a href="#3-海量数据的存储与快速读写" class="headerlink" title="3. 海量数据的存储与快速读写"></a>3. 海量数据的存储与快速读写</h4><h3 id="二-SimHash-算法引入"><a href="#二-SimHash-算法引入" class="headerlink" title="二. SimHash 算法引入"></a>二. SimHash 算法引入</h3><p>基于问题一，我们引入了 SimHash 算法来实现海量文本的相似度计算与快速去重。下面我们简单了解下该算法。</p>
+<h4 id="1-局部敏感哈希"><a href="#1-局部敏感哈希" class="headerlink" title="1. 局部敏感哈希"></a>1. 局部敏感哈希</h4><p>在介绍 SimHash 算法之前，我们先简单介绍下局部敏感哈希是什么。局部敏感哈希的基本思想类似于一种空间域转换思想，LSH 算法基于一个假设，如果两个文本在原有的数据空间是相似的，那么分别经过哈希函数转换以后的它们也具有很高的相似度；相反，如果它们本身是不相似的，那么经过转换后它们应仍不具有相似性。</p>
 <p> 局部敏感哈希的最大特点就在于保持数据的相似性，举一个小小的例子说明一下：对A文章微调后我们称其为B文章（可能只是多了一个‘的’字），如果此时我们计算两篇文章的 MD5 值，那么必将大相径庭。而局部敏感哈希的好处是经过哈希函数转换后的值也只是发生了微小的变化，即如果两篇文章相似度很高，那么在算法转换后其相似度也会很高。</p>
 <p>MinHash 与 SimHash 算法都属于局部敏感哈希，一般情况若每个 Feature 无权重，则 MinHash 效果优于 SimHash 有权重时 SimHash 合适。长文本使用 Simhash 效果很好，短文本使用 Simhash 准备度不高。</p>
-<h3 id="2-SimHash-算法"><a href="#2-SimHash-算法" class="headerlink" title="2. SimHash 算法"></a>2. SimHash 算法</h3><p>SimHash 是 Google 在2007年发表的论文《Detecting Near-Duplicates for Web Crawling 》中提到的一种指纹生成算法或者叫指纹提取算法，被 Google 广泛应用在亿级的网页去重的 Job 中，其主要思想是降维，经过simhash降维后，可能仅仅得到一个长度为32或64位的二进制由01组成的字符串。而一维查询则是非常快速的。</p>
+<h4 id="2-SimHash-算法"><a href="#2-SimHash-算法" class="headerlink" title="2. SimHash 算法"></a>2. SimHash 算法</h4><p>SimHash 是 Google 在2007年发表的论文《Detecting Near-Duplicates for Web Crawling 》中提到的一种指纹生成算法或者叫指纹提取算法，被 Google 广泛应用在亿级的网页去重的 Job 中，其主要思想是降维，经过simhash降维后，可能仅仅得到一个长度为32或64位的二进制由01组成的字符串。而一维查询则是非常快速的。</p>
 <p>SimHash的工作原理我们这里略过，大家可以简单理解为：我们可以利用SimHash算法为每一个网页/文章生成一个长度为32或64位的二进制由01组成的字符串（向量指纹），形如：1000010010101101111111100000101011010001001111100001001011001011。</p>
-<h3 id="3-海明距离"><a href="#3-海明距离" class="headerlink" title="3. 海明距离"></a>3. 海明距离</h3><p>两个码字的对应比特取值不同的比特数称为这两个码字的海明距离。在一个有效编码集中,任意两个码字的海明距离的最小值称为该编码集的海明距离。举例如下：10101和00110从第一位开始依次有第一位、第四、第五位不同，则海明距离为3。</p>
+<h4 id="3-海明距离"><a href="#3-海明距离" class="headerlink" title="3. 海明距离"></a>3. 海明距离</h4><p>两个码字的对应比特取值不同的比特数称为这两个码字的海明距离。在一个有效编码集中,任意两个码字的海明距离的最小值称为该编码集的海明距离。举例如下：10101和00110从第一位开始依次有第一位、第四、第五位不同，则海明距离为3。</p>
 <p>在 google 的论文给出的数据中，64位的签名，在海明距离为3的情况下，可认为两篇文档是相似的或者是重复的，当然这个值只是参考值。</p>
 <p>这样，基于 SimHash 算法，我们就可以将百亿千亿级的高维特征文章转变为一维字符串后再通过计算其海明距离判断网页/文章的相似度，可想效率必将大大提高。</p>
-<h1 id="三-效率问题"><a href="#三-效率问题" class="headerlink" title="三. 效率问题"></a>三. 效率问题</h1><p>到这里相似度问题基本解决，但是按这个思路，在海量数据几百亿的数量下，效率问题还是没有解决的，因为数据是不断添加进来的，不可能每来一条数据，都要和全库的数据做一次比较，按照这种思路，处理速度会越来越慢，线性增长。 </p>
+<h3 id="三-效率问题"><a href="#三-效率问题" class="headerlink" title="三. 效率问题"></a>三. 效率问题</h3><p>到这里相似度问题基本解决，但是按这个思路，在海量数据几百亿的数量下，效率问题还是没有解决的，因为数据是不断添加进来的，不可能每来一条数据，都要和全库的数据做一次比较，按照这种思路，处理速度会越来越慢，线性增长。 </p>
 <p>这里，我们要引入一个新的概念：<strong>抽屉原理</strong>，也称鸽巢原理。下面我们简单举例说一下：</p>
 <p>桌子上有四个苹果，但只有三个抽屉，如果要将四个苹果放入三个抽屉里，那么必然有一个抽屉中放入了两个苹果。如果每个抽屉代表一个集合，每一个苹果就可以代表一个元素，假如有n+1个元素放到n个集合中去，其中必定有一个集合里至少有两个元素。</p>
 <p>抽屉原理就是这么简单，那如果用它来解决我们海量数据的遍历问题呢？</p>
@@ -264,7 +264,7 @@
 <p>那也就是说，我们可以以某文本的 SimHash 的每个16位截断指纹为 Key，Value 为 Key 相等时文本的 SimHash 集合存入 K-V 数据库即可，查询时候，精确匹配这个指纹的4个16位截断指纹所对应的4个 SimHash 集合即可。</p>
 <p>如此，假设样本库，有2^37 条数据（1375亿数据），假设数据均匀分布，则每个16位（16个01数字随机组成的组合为2^16 个）倒排返回的最大数量为<br>(2^37) * 4 / (2^16) =8388608个候选结果，4个16位截断索引，总的结果为：4*8388608=33554432，约为3356万，通过<br>这样一来的降维处理，原来需要比较1375亿次，现在只需要比较3356万次即可得到结果，这样以来大大提升了计算效率。</p>
 <p>根据网上测试数据显示，普通 PC 比较1000万次海明距离大约需要 300ms，也就是说3356万次（1375亿数据）只需花费3356/1000*0.3=1.0068s。那也就是说对于千亿级文本数据（如果每个文本1kb，约100TB数据）的相似度计算与去重工作我们最多只需要一秒的时间即可得出结果。</p>
-<h1 id="四-HBase-存储设计"><a href="#四-HBase-存储设计" class="headerlink" title="四. HBase 存储设计"></a>四. HBase 存储设计</h1><p>饶了这么大一周，我们终于将需要讲明的理论知识给大家过了一遍。为了阐述的尽量清晰易懂，文中很多理论知识的理解借鉴了大量博主大牛的博客，原文链接已在文末附上，有不太明白的地方快快跪拜大牛们的博客吧，哈哈！</p>
+<h3 id="四-HBase-存储设计"><a href="#四-HBase-存储设计" class="headerlink" title="四. HBase 存储设计"></a>四. HBase 存储设计</h3><p>饶了这么大一周，我们终于将需要讲明的理论知识给大家过了一遍。为了阐述的尽量清晰易懂，文中很多理论知识的理解借鉴了大量博主大牛的博客，原文链接已在文末附上，有不太明白的地方快快跪拜大牛们的博客吧，哈哈！</p>
 <p>下面我们着重介绍一下 HBase 存储表的设计与实现。</p>
 <p>基于上文我们可以大概知道，如果将64位指纹平分四份，海明距离取3，那么必有一段16位截取指纹的数据是相等的。而每一段16位截取指纹对应一个64位指纹集合，且该集合中的每个64位指纹必有一段16位截取指纹与该段16位截取指纹重合。我们可以简单表示(以8位非01指纹举例)为：</p>
 <table>
@@ -284,7 +284,7 @@
 </tr>
 </tbody></table>
 <p>那如果基于 HBase 去实现的话，我们大概对比三种可能的设计方案。</p>
-<h3 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h3><p>以 16 位指纹作为 HBase 数据表的行键，将每一个与之可能相似的64位指纹作为 HBase 的列，列值存文章id值，即构建一张大宽表。如下表所示(以8位非01指纹举例)：</p>
+<h4 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h4><p>以 16 位指纹作为 HBase 数据表的行键，将每一个与之可能相似的64位指纹作为 HBase 的列，列值存文章id值，即构建一张大宽表。如下表所示(以8位非01指纹举例)：</p>
 <table>
 <thead>
 <tr>
@@ -336,7 +336,7 @@
 <p>那其实这样设计表的话该 HBase 表 Rowkey 的个数就是一个确定的数值：16个01数字随机组成的组合为2^16 个。也就是共2^16=65536行。 列的个数其实也是固定的，即2^64=184467440737亿万列。</p>
 <p>此时，比如说我们比较56431234与库中所有文本的相似度，只需拉去rowkey in (56,43,12,34) 四行数据遍历每行列，由于 HBase 空值不进行存储，所有只会遍历存在值的列名。</p>
 <p>由上文我们计算出1350亿数据如果平均分布的话每行大约有839万列，且不说我们的数据量可能远远大于千亿级别，也不说以64位字符串作为列名所占的存储空间有多大，单单千亿级数据量 HBase 每行就大约839万列，虽说HBase号称支持千万行百万列数据存储，但总归还是设计太不合理。数据不会理想化均匀分布，总列数高达184467440737亿万列也令人堪忧。</p>
-<h3 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h3><p>以 16 位指纹与64位指纹拼接后作为 HBase 数据表的行键，该表只有一列，列值存文章id值，即构建一张大长表。如下表所示(以8位非01指纹举例)：</p>
+<h4 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h4><p>以 16 位指纹与64位指纹拼接后作为 HBase 数据表的行键，该表只有一列，列值存文章id值，即构建一张大长表。如下表所示(以8位非01指纹举例)：</p>
 <table>
 <thead>
 <tr>
@@ -379,7 +379,7 @@
 </tr>
 </tbody></table>
 <p>如此设计感觉要比第一种方法要好一些，每一篇文章会被存为四行。但同样有诸多缺点，一是 Rowkey 过长，二是即便我们通过某种转变设计解决了问题一，那获取数据时我们也只能将 Get 请求转为四个Scan并发扫描+StartEnKey 去扫描表获取数据。当然，如果想实现顺序扫描还可能存在热点问题。在存储上，也造成了数据大量冗余。</p>
-<h3 id="方案三："><a href="#方案三：" class="headerlink" title="方案三："></a>方案三：</h3><p>在真实生产环境中，我们采取该方案来避免上述两个方案中出现的问题与不足。下面简单介绍一下（如果您有更好更优的方案，欢迎留言，先表示感谢！）</p>
+<h4 id="方案三："><a href="#方案三：" class="headerlink" title="方案三："></a>方案三：</h4><p>在真实生产环境中，我们采取该方案来避免上述两个方案中出现的问题与不足。下面简单介绍一下（如果您有更好更优的方案，欢迎留言，先表示感谢！）</p>
 <p>简言之呢，就是自己在 HBase 端维护了一个 Set 集合（协处理器），并以 Json 串进行存储，格式如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;64SimHash1&quot;:&quot;id1&quot;,</span><br><span class="line">    &quot;64SimHash2&quot;:&quot;id2&quot;,</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -449,7 +449,7 @@
 <p>如果再加上 Snappy 压缩呢？<br>如果再加上 Fast-Diff 编码呢？<br>如果再开启 Mob 对象存储呢？ 每个 Set 是不是可以存10万个键值对？每行只需90个 Set 集合。</p>
 <p>也或许，如果数据量小的话，使用 Redis 是不是更好呢？</p>
 <p>总之，优化完善和不完美的地方还很多，本文也就简单叙述到此，如果您有好的建议或是不同看法，欢迎留言哦！感恩~ 晚安各位~~</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://blog.csdn.net/u010454030/article/details/49102565" target="_blank" rel="noopener">1. https://blog.csdn.net/u010454030/article/details/49102565</a><br><a href="http://www.lanceyan.com/tech/arch/simhash_hamming_distance_similarity2-html.html" target="_blank" rel="noopener">2. http://www.lanceyan.com/tech/arch/simhash_hamming_distance_similarity2-html.html</a><br><a href="https://cloud.tencent.com/developer/news/218062" target="_blank" rel="noopener">3. https://cloud.tencent.com/developer/news/218062</a><br><a href="https://blog.csdn.net/qq_36142114/article/details/80540303" target="_blank" rel="noopener">4. https://blog.csdn.net/qq_36142114/article/details/80540303</a><br><a href="https://blog.csdn.net/u011467621/article/details/49685107" target="_blank" rel="noopener">5. https://blog.csdn.net/u011467621/article/details/49685107</a></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://blog.csdn.net/u010454030/article/details/49102565" target="_blank" rel="noopener">1. https://blog.csdn.net/u010454030/article/details/49102565</a><br><a href="http://www.lanceyan.com/tech/arch/simhash_hamming_distance_similarity2-html.html" target="_blank" rel="noopener">2. http://www.lanceyan.com/tech/arch/simhash_hamming_distance_similarity2-html.html</a><br><a href="https://cloud.tencent.com/developer/news/218062" target="_blank" rel="noopener">3. https://cloud.tencent.com/developer/news/218062</a><br><a href="https://blog.csdn.net/qq_36142114/article/details/80540303" target="_blank" rel="noopener">4. https://blog.csdn.net/qq_36142114/article/details/80540303</a><br><a href="https://blog.csdn.net/u011467621/article/details/49685107" target="_blank" rel="noopener">5. https://blog.csdn.net/u011467621/article/details/49685107</a></p>
 
     </div>
 
@@ -528,7 +528,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一-面临的问题"><span class="nav-number">2.</span> <span class="nav-text">一. 面临的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-如何选择文本的相似度计算或去重算法？"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 如何选择文本的相似度计算或去重算法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何实现快速计算文本相似度或去重呢？"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. 如何实现快速计算文本相似度或去重呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-海量数据的存储与快速读写"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. 海量数据的存储与快速读写</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-SimHash-算法引入"><span class="nav-number">3.</span> <span class="nav-text">二. SimHash 算法引入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-局部敏感哈希"><span class="nav-number">3.0.1.</span> <span class="nav-text">1. 局部敏感哈希</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SimHash-算法"><span class="nav-number">3.0.2.</span> <span class="nav-text">2. SimHash 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-海明距离"><span class="nav-number">3.0.3.</span> <span class="nav-text">3. 海明距离</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-效率问题"><span class="nav-number">4.</span> <span class="nav-text">三. 效率问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-HBase-存储设计"><span class="nav-number">5.</span> <span class="nav-text">四. HBase 存储设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方案一："><span class="nav-number">5.0.1.</span> <span class="nav-text">方案一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案二："><span class="nav-number">5.0.2.</span> <span class="nav-text">方案二：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案三："><span class="nav-number">5.0.3.</span> <span class="nav-text">方案三：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一-面临的问题"><span class="nav-number">2.</span> <span class="nav-text">一. 面临的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-如何选择文本的相似度计算或去重算法？"><span class="nav-number">2.1.</span> <span class="nav-text">1. 如何选择文本的相似度计算或去重算法？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-如何实现快速计算文本相似度或去重呢？"><span class="nav-number">2.2.</span> <span class="nav-text">2. 如何实现快速计算文本相似度或去重呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-海量数据的存储与快速读写"><span class="nav-number">2.3.</span> <span class="nav-text">3. 海量数据的存储与快速读写</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-SimHash-算法引入"><span class="nav-number">3.</span> <span class="nav-text">二. SimHash 算法引入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-局部敏感哈希"><span class="nav-number">3.1.</span> <span class="nav-text">1. 局部敏感哈希</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-SimHash-算法"><span class="nav-number">3.2.</span> <span class="nav-text">2. SimHash 算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-海明距离"><span class="nav-number">3.3.</span> <span class="nav-text">3. 海明距离</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-效率问题"><span class="nav-number">4.</span> <span class="nav-text">三. 效率问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-HBase-存储设计"><span class="nav-number">5.</span> <span class="nav-text">四. HBase 存储设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案一："><span class="nav-number">5.1.</span> <span class="nav-text">方案一：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案二："><span class="nav-number">5.2.</span> <span class="nav-text">方案二：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案三："><span class="nav-number">5.3.</span> <span class="nav-text">方案三：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
