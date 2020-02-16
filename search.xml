@@ -25,7 +25,7 @@
 <p>这将创建一个备份文件夹，假定它是$ KYLIN_HOME / metadata_backup / 2015-09-25 /</p>
 <h4 id="第2步：创建子文件夹“hybrid”"><a href="#第2步：创建子文件夹“hybrid”" class="headerlink" title="第2步：创建子文件夹“hybrid”"></a>第2步：创建子文件夹“hybrid”</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p $KYLIN_HOME&#x2F;metadata_backup&#x2F;2015-09-25&#x2F;hybrid</span><br></pre></td></tr></table></figure>
 
-<h4 id="第3步：创建混合实例json文件："><a href="#第3步：创建混合实例json文件：" class="headerlink" title="第3步：创建混合实例json文件："></a>第3步：创建混合实例json文件：</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi $KYLIN_HOME&#x2F;metadata_backup&#x2F;2015-09-25&#x2F;hybrid&#x2F;my_hybrid.json</span><br></pre></td></tr></table></figure>
+<h4 id="第3步：创建混合实例json文件"><a href="#第3步：创建混合实例json文件" class="headerlink" title="第3步：创建混合实例json文件"></a>第3步：创建混合实例json文件</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi $KYLIN_HOME&#x2F;metadata_backup&#x2F;2015-09-25&#x2F;hybrid&#x2F;my_hybrid.json</span><br></pre></td></tr></table></figure>
 
 <p>像下面这样的输入内容，“名称”和“uuid”需要是唯一的：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;uuid&quot;: &quot;9iiu8590-64b6-4367-8fb5-7500eb95fd9c&quot;,</span><br><span class="line">  &quot;name&quot;: &quot;my_hybrid&quot;,</span><br><span class="line">  &quot;realizations&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">           &quot;type&quot;: &quot;CUBE&quot;,</span><br><span class="line">           &quot;realization&quot;: &quot;Cube_V1&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">            &quot;type&quot;: &quot;CUBE&quot;,</span><br><span class="line">            &quot;realization&quot;: &quot;Cube_V2&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -41,25 +41,25 @@
 
 <p>请注意，“restore”操作会将元数据从本地上传到远程hbase store，这可能会覆盖远程中的更改; 因此，请在此期间没有从Kylin服务器更改元数据（无 build job，无Cube 创建/更新等）时执行此操作，或者在运行“restore”之前仅将已更改的文件提取到空的本地文件夹。</p>
 <h4 id="第6步：重新加载元数据"><a href="#第6步：重新加载元数据" class="headerlink" title="第6步：重新加载元数据"></a>第6步：重新加载元数据</h4><p>重新启动Kylin服务器，或在Kylin Web UI的“管理”标签中点击“重新加载元数据”以加载更改; 理想情况下，混合动力车将开始工作; 你可以通过编写一些SQL来做一些验证。</p>
-<h3 id="常问问题："><a href="#常问问题：" class="headerlink" title="常问问题："></a>常问问题：</h3><p><strong>问题1</strong>：混合模型何时被调用来回答客户端SQL查询？<br>如果混合模型中存在一个立方体可以回答查询，则将选择混合体;</p>
+<h3 id="常问问题"><a href="#常问问题" class="headerlink" title="常问问题"></a>常问问题</h3><p><strong>问题1</strong>：混合模型何时被调用来回答客户端SQL查询？<br>如果混合模型中存在一个立方体可以回答查询，则将选择混合体;</p>
 <p><strong>问题2</strong>：混合模型如何回答一个查询？<br>Hybrid将把查询委托给它的每个子实现; 如果一个子多维数据集能够执行此查询（匹配所有维度/指标），它会将结果返回到混合模式，否则将被跳过; 最后，查询引擎会在返回给用户之前聚合来自混合的数据;</p>
 <p><strong>问题3</strong>：混合模型检查日期/时间重复吗？<br>不检查; 这个需要用户确保混合中的立方体不具有重复的日期/时间范围; 例如，“Cube_V1”在2015-9-20（不含）结束，“Cube_V2”应从2015-9-20（含）开始;</p>
 <p><strong>问题4</strong>：混合模型会限制具有相同数据模型的子立方体吗？<br>不会; 为了提供灵活性，Hybrid不检查子立方体的事实表/查找表和连接条件是否相同; 但用户应该明白他们在做什么以避免意外的行为。</p>
 <p><strong>问题5</strong>：混合模型中是否可以包含子hybrid ？<br>不能; 没有这个必要; 到目前为止，假设所有的Child都是Cube;</p>
 <p><strong>问题6</strong>：我可以使用混合加入多个立方体吗？<br>不能; 混合模型的目的是连接历史Cube和新Cube，类似“union”而不是“join”;</p>
 <p><strong>问题7</strong>：如果子立方体被禁用，它是否会通过混合动力进行扫描？<br>不会; 混合实例会在发送查询之前检查子实现的状态; 所以如果立方体被禁用，它将不会被扫描。</p>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p><strong>1.</strong> 必须在构建好新的cube后备份元数据，从而进行修改恢复<br><strong>2.</strong> 修改完元数据后必须重启kylin集群或者重新载入元数据，否则报错（Overwriting conflict /project/<strong><em>.json, expect old TS 1525758479256, but it is 152576031000）<br>*</em>3.</strong> 若修改视图表（如添加字段），修改完毕后要reload一下<br><strong>4.</strong> Purge Cube 后Hbase中存储的计算结果不会被删除，Hbase可查<br><strong>5.</strong> 新Cube不能build旧Cube已经build过的相同日期的数据，若修复历史数据，需先删除旧的Segment<br><strong>6.</strong> 若想修改字段名，必须Perge Cube，Hybrid 无法满足需求<br><strong>7.</strong> 新增字段在build完毕后Kylin表才会更新字段信息</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p><strong>1.</strong> 必须在构建好新的cube后备份元数据，从而进行修改恢复<br><strong>2.</strong> 修改完元数据后必须重启kylin集群或者重新载入元数据，否则报错（Overwriting conflict /project/<strong><em>.json, expect old TS 1525758479256, but it is 152576031000）<br>*</em>3.</strong> 若修改视图表（如添加字段），修改完毕后要reload一下<br><strong>4.</strong> Purge Cube 后Hbase中存储的计算结果不会被删除，Hbase可查<br><strong>5.</strong> 新Cube不能build旧Cube已经build过的相同日期的数据，若修复历史数据，需先删除旧的Segment<br><strong>6.</strong> 若想修改字段名，必须Perge Cube，Hybrid 无法满足需求<br><strong>7.</strong> 新增字段在build完毕后Kylin表才会更新字段信息</p>
 <h3 id="清除Hbase无用数据表"><a href="#清除Hbase无用数据表" class="headerlink" title="清除Hbase无用数据表"></a>清除Hbase无用数据表</h3><p>当我们对cube执行purge/drop/merge时，一些HBase的表可能会保留在HBase中，而这些表不再被查询，尽管Kylin会做一些自动的垃圾回收，但是它可能不会覆盖所有方面，所以需要我们能够每隔一段时间做一些离线存储的清理工作。具体步骤如下：</p>
 <p><strong>1.</strong> 检查哪些资源需要被清理，这个操作不会删除任何内容：</p>
 <p>${KYLIN_HOME}/bin/kylin.sh org.apache.kylin.storage.hbase.util.StorageCleanupJob –delete false</p>
 <p><strong>2.</strong> 根据上面的输出结果，挑选一两个资源看看是否是不再需要的。接着，在上面的命令基础上添加“–delete true”选项，开始执行清理操作，命令执行完成后，中间的HDFS文和盒HTables表就被删除了。</p>
-<p><strong>（完）</strong></p>
 ]]></content>
       <categories>
-        <category>大数据</category>
+        <category>Kylin</category>
       </categories>
       <tags>
         <tag>Kylin</tag>
+        <tag>大数据</tag>
       </tags>
   </entry>
   <entry>
@@ -79,7 +79,7 @@
 <h4 id="3-海明距离"><a href="#3-海明距离" class="headerlink" title="3. 海明距离"></a>3. 海明距离</h4><p>两个码字的对应比特取值不同的比特数称为这两个码字的海明距离。在一个有效编码集中,任意两个码字的海明距离的最小值称为该编码集的海明距离。举例如下：10101和00110从第一位开始依次有第一位、第四、第五位不同，则海明距离为3。</p>
 <p>在 google 的论文给出的数据中，64位的签名，在海明距离为3的情况下，可认为两篇文档是相似的或者是重复的，当然这个值只是参考值。</p>
 <p>这样，基于 SimHash 算法，我们就可以将百亿千亿级的高维特征文章转变为一维字符串后再通过计算其海明距离判断网页/文章的相似度，可想效率必将大大提高。</p>
-<h3 id="三-效率问题"><a href="#三-效率问题" class="headerlink" title="三. 效率问题"></a>三. 效率问题</h3><p>到这里相似度问题基本解决，但是按这个思路，在海量数据几百亿的数量下，效率问题还是没有解决的，因为数据是不断添加进来的，不可能每来一条数据，都要和全库的数据做一次比较，按照这种思路，处理速度会越来越慢，线性增长。 </p>
+<h3 id="三-效率问题"><a href="#三-效率问题" class="headerlink" title="三. 效率问题"></a>三. 效率问题</h3><p>到这里相似度问题基本解决，但是按这个思路，在海量数据几百亿的数量下，效率问题还是没有解决的，因为数据是不断添加进来的，不可能每来一条数据，都要和全库的数据做一次比较，按照这种思路，处理速度会越来越慢，线性增长。</p>
 <p>这里，我们要引入一个新的概念：<strong>抽屉原理</strong>，也称鸽巢原理。下面我们简单举例说一下：</p>
 <p>桌子上有四个苹果，但只有三个抽屉，如果要将四个苹果放入三个抽屉里，那么必然有一个抽屉中放入了两个苹果。如果每个抽屉代表一个集合，每一个苹果就可以代表一个元素，假如有n+1个元素放到n个集合中去，其中必定有一个集合里至少有两个元素。</p>
 <p>抽屉原理就是这么简单，那如果用它来解决我们海量数据的遍历问题呢？</p>
@@ -107,7 +107,7 @@
 </tr>
 </tbody></table>
 <p>那如果基于 HBase 去实现的话，我们大概对比三种可能的设计方案。</p>
-<h4 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h4><p>以 16 位指纹作为 HBase 数据表的行键，将每一个与之可能相似的64位指纹作为 HBase 的列，列值存文章id值，即构建一张大宽表。如下表所示(以8位非01指纹举例)：</p>
+<h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4><p>以 16 位指纹作为 HBase 数据表的行键，将每一个与之可能相似的64位指纹作为 HBase 的列，列值存文章id值，即构建一张大宽表。如下表所示(以8位非01指纹举例)：</p>
 <table>
 <thead>
 <tr>
@@ -159,7 +159,7 @@
 <p>那其实这样设计表的话该 HBase 表 Rowkey 的个数就是一个确定的数值：16个01数字随机组成的组合为2^16 个。也就是共2^16=65536行。 列的个数其实也是固定的，即2^64=184467440737亿万列。</p>
 <p>此时，比如说我们比较56431234与库中所有文本的相似度，只需拉去rowkey in (56,43,12,34) 四行数据遍历每行列，由于 HBase 空值不进行存储，所有只会遍历存在值的列名。</p>
 <p>由上文我们计算出1350亿数据如果平均分布的话每行大约有839万列，且不说我们的数据量可能远远大于千亿级别，也不说以64位字符串作为列名所占的存储空间有多大，单单千亿级数据量 HBase 每行就大约839万列，虽说HBase号称支持千万行百万列数据存储，但总归还是设计太不合理。数据不会理想化均匀分布，总列数高达184467440737亿万列也令人堪忧。</p>
-<h4 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h4><p>以 16 位指纹与64位指纹拼接后作为 HBase 数据表的行键，该表只有一列，列值存文章id值，即构建一张大长表。如下表所示(以8位非01指纹举例)：</p>
+<h4 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h4><p>以 16 位指纹与64位指纹拼接后作为 HBase 数据表的行键，该表只有一列，列值存文章id值，即构建一张大长表。如下表所示(以8位非01指纹举例)：</p>
 <table>
 <thead>
 <tr>
@@ -202,7 +202,7 @@
 </tr>
 </tbody></table>
 <p>如此设计感觉要比第一种方法要好一些，每一篇文章会被存为四行。但同样有诸多缺点，一是 Rowkey 过长，二是即便我们通过某种转变设计解决了问题一，那获取数据时我们也只能将 Get 请求转为四个Scan并发扫描+StartEnKey 去扫描表获取数据。当然，如果想实现顺序扫描还可能存在热点问题。在存储上，也造成了数据大量冗余。</p>
-<h4 id="方案三："><a href="#方案三：" class="headerlink" title="方案三："></a>方案三：</h4><p>在真实生产环境中，我们采取该方案来避免上述两个方案中出现的问题与不足。下面简单介绍一下（如果您有更好更优的方案，欢迎留言，先表示感谢！）</p>
+<h4 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h4><p>在真实生产环境中，我们采取该方案来避免上述两个方案中出现的问题与不足。下面简单介绍一下（如果您有更好更优的方案，欢迎留言，先表示感谢！）</p>
 <p>简言之呢，就是自己在 HBase 端维护了一个 Set 集合（协处理器），并以 Json 串进行存储，格式如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;64SimHash1&quot;:&quot;id1&quot;,</span><br><span class="line">    &quot;64SimHash2&quot;:&quot;id2&quot;,</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -275,10 +275,13 @@
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://blog.csdn.net/u010454030/article/details/49102565" target="_blank" rel="noopener">1. https://blog.csdn.net/u010454030/article/details/49102565</a><br><a href="http://www.lanceyan.com/tech/arch/simhash_hamming_distance_similarity2-html.html" target="_blank" rel="noopener">2. http://www.lanceyan.com/tech/arch/simhash_hamming_distance_similarity2-html.html</a><br><a href="https://cloud.tencent.com/developer/news/218062" target="_blank" rel="noopener">3. https://cloud.tencent.com/developer/news/218062</a><br><a href="https://blog.csdn.net/qq_36142114/article/details/80540303" target="_blank" rel="noopener">4. https://blog.csdn.net/qq_36142114/article/details/80540303</a><br><a href="https://blog.csdn.net/u011467621/article/details/49685107" target="_blank" rel="noopener">5. https://blog.csdn.net/u011467621/article/details/49685107</a></p>
 ]]></content>
       <categories>
-        <category>大数据</category>
+        <category>HBase</category>
       </categories>
       <tags>
+        <tag>大数据</tag>
         <tag>HBase</tag>
+        <tag>SimHash</tag>
+        <tag>文本相似度计算</tag>
       </tags>
   </entry>
 </search>
