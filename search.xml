@@ -60,6 +60,7 @@
       <tags>
         <tag>Kylin</tag>
         <tag>大数据</tag>
+        <tag>2020</tag>
       </tags>
   </entry>
   <entry>
@@ -279,6 +280,7 @@
       </categories>
       <tags>
         <tag>大数据</tag>
+        <tag>2020</tag>
         <tag>HBase</tag>
         <tag>SimHash</tag>
         <tag>文本相似度计算</tag>
