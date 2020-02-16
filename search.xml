@@ -37,7 +37,7 @@
 <p>在“realizations”数组中，添加一个如下所示的条目，类型需要是“HYBRID”，“实现”是混合实例的名称：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;my_hybrid&quot;,</span><br><span class="line">  &quot;type&quot;: &quot;HYBRID&quot;,</span><br><span class="line">  &quot;realization&quot;: &quot;my_hybrid&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="第5步：上传元数据："><a href="#第5步：上传元数据：" class="headerlink" title="第5步：上传元数据："></a>第5步：上传元数据：</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$KYLIN_HOME&#x2F;bin&#x2F;metastore.sh restore $KYLIN_HOME&#x2F;metadata_backup&#x2F;2015-09-25&#x2F;</span><br></pre></td></tr></table></figure>
+<h4 id="第5步：上传元数据"><a href="#第5步：上传元数据" class="headerlink" title="第5步：上传元数据"></a>第5步：上传元数据</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$KYLIN_HOME&#x2F;bin&#x2F;metastore.sh restore $KYLIN_HOME&#x2F;metadata_backup&#x2F;2015-09-25&#x2F;</span><br></pre></td></tr></table></figure>
 
 <p>请注意，“restore”操作会将元数据从本地上传到远程hbase store，这可能会覆盖远程中的更改; 因此，请在此期间没有从Kylin服务器更改元数据（无 build job，无Cube 创建/更新等）时执行此操作，或者在运行“restore”之前仅将已更改的文件提取到空的本地文件夹。</p>
 <h4 id="第6步：重新加载元数据"><a href="#第6步：重新加载元数据" class="headerlink" title="第6步：重新加载元数据"></a>第6步：重新加载元数据</h4><p>重新启动Kylin服务器，或在Kylin Web UI的“管理”标签中点击“重新加载元数据”以加载更改; 理想情况下，混合动力车将开始工作; 你可以通过编写一些SQL来做一些验证。</p>
@@ -51,7 +51,8 @@
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p><strong>1.</strong> 必须在构建好新的cube后备份元数据，从而进行修改恢复<br><strong>2.</strong> 修改完元数据后必须重启kylin集群或者重新载入元数据，否则报错（Overwriting conflict /project/<strong><em>.json, expect old TS 1525758479256, but it is 152576031000）<br>*</em>3.</strong> 若修改视图表（如添加字段），修改完毕后要reload一下<br><strong>4.</strong> Purge Cube 后Hbase中存储的计算结果不会被删除，Hbase可查<br><strong>5.</strong> 新Cube不能build旧Cube已经build过的相同日期的数据，若修复历史数据，需先删除旧的Segment<br><strong>6.</strong> 若想修改字段名，必须Perge Cube，Hybrid 无法满足需求<br><strong>7.</strong> 新增字段在build完毕后Kylin表才会更新字段信息</p>
 <h3 id="清除Hbase无用数据表"><a href="#清除Hbase无用数据表" class="headerlink" title="清除Hbase无用数据表"></a>清除Hbase无用数据表</h3><p>当我们对cube执行purge/drop/merge时，一些HBase的表可能会保留在HBase中，而这些表不再被查询，尽管Kylin会做一些自动的垃圾回收，但是它可能不会覆盖所有方面，所以需要我们能够每隔一段时间做一些离线存储的清理工作。具体步骤如下：</p>
 <p><strong>1.</strong> 检查哪些资源需要被清理，这个操作不会删除任何内容：</p>
-<p>${KYLIN_HOME}/bin/kylin.sh org.apache.kylin.storage.hbase.util.StorageCleanupJob –delete false</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$&#123;KYLIN_HOME&#125;&#x2F;bin&#x2F;kylin.sh org.apache.kylin.storage.hbase.util.StorageCleanupJob --delete false</span><br></pre></td></tr></table></figure>
+
 <p><strong>2.</strong> 根据上面的输出结果，挑选一两个资源看看是否是不再需要的。接着，在上面的命令基础上添加“–delete true”选项，开始执行清理操作，命令执行完成后，中间的HDFS文和盒HTables表就被删除了。</p>
 ]]></content>
       <categories>
