@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-24T10:27:24.691Z</updated>
+  <updated>2020-02-24T10:49:24.937Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解惑大学生：计算机专业毕业以后都干嘛？希望这张图可以帮到你~</title>
+    <link href="http://yoursite.com/2020/02/24/%E8%A7%A3%E6%83%91%E5%A4%A7%E5%AD%A6%E7%94%9F%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E6%AF%95%E4%B8%9A%E4%BB%A5%E5%90%8E%E9%83%BD%E5%B9%B2%E5%98%9B%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E5%BC%A0%E5%9B%BE%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0~/"/>
+    <id>http://yoursite.com/2020/02/24/%E8%A7%A3%E6%83%91%E5%A4%A7%E5%AD%A6%E7%94%9F%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E6%AF%95%E4%B8%9A%E4%BB%A5%E5%90%8E%E9%83%BD%E5%B9%B2%E5%98%9B%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E5%BC%A0%E5%9B%BE%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0~/</id>
+    <published>2020-02-24T10:30:21.000Z</published>
+    <updated>2020-02-24T10:49:24.937Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>前言：</strong>小外甥今年上大二，专业计算机科学与技术，前几日聊天跟我说不知道自己现在学的知识是干嘛用的，毕业以后干神马，神马是前端神马是后端呢？我听后跟他说等我画张图给你看吧。这篇文章分享给所有计算机专业的大学生，希望能帮到祖国的花朵们~</p></blockquote><p>世界那么大，我们都想去看看。其实，每一个专业背后也都是一片汪洋大海，每个人都在海里漂流，沿着自己的航线，渴望逐向前方的小岛~ </p><p>我自己呢是做软件开发的，具体说呢应该是大数据开发，前端后端基本也都做过，虽然不深但也大概了解。硬件和网络相对了解少一些，所以着墨也就少了点，怕误人子弟。</p><p>我凭自己的感受将计算机分为软件、硬件及网络三大方向，又着重对软件行业细分为功能型、资源型、保障型、管理型、企业型多个维度，主要是想让大家看的清晰一些，但毕竟技术是相互依赖的，你中有我，我中有你，不可能完全分隔。</p><p>下面我们先来看一下这片大海吧，希望从大海中可以找到自己心中的那个小岛~</p><p><img src="https://upload-images.jianshu.io/upload_images/7875120-a8492cabb8890ae9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="大学计算机专业就业方向一览"></p><p>看完这幅图，还是想对祖国的花朵们灌一些鸡汤喝喝，哈哈~</p><p>首先，还是希望大家能提升自己的动手能力，要有探索精神，毕竟我们是靠手来吃饭的。学校学习的知识，我们要应用到实战中去，自己可以多找找项目，练习练习，练着练着也就不疑惑了。所以，大家一定要多动手~</p><p>其次，这幅图可能只是一个粗略的就业方向图，其实在工作中，行业会分的很细很细。比如爬虫工程师、推荐系统工程师、k-v 存储开发工程师等等，这些是面向业务模型的；还有像Redis高级开发工程师、Redis专家、Spring专家等等，这些是面向某门技术或框架的。</p><p>大家没必要过分担心，这些也都是上图某个细分方向的衍化而已，等你们接触到业务或项目的时候就会知道的。其实还是要做好第一点，上帝不会亏待勤奋的孩子的。所以，大家一定不要太担心~</p><p>最后，想说的是，不管我们做什么，都是一条精进之路。三百六十行，行行出状元，我们这行业当然也不例外。不管我们选择什么方向，都要经历初级、中级、高级等一路的磨难，然后成为某个领域的专家或是架构师或是管理者或是被淘汰。所以，大家一定要知努力~</p><p>如果大家还有什么疑问，可以进入公众号【chan-ke】首页，点击【点我】【加好友】添加我的个人微信哦~ 请记得填写备注信息哦，陌生人是不予通过的~</p><p>在这里向大家问好，祝大家身体健康，开心快乐，学习更上一层楼~</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;前言：&lt;/strong&gt;小外甥今年上大二，专业计算机科学与技术，前几日聊天跟我说不知道自己现在学的知识是干嘛用的，毕业以后干神马，神马是前端神马是后端呢？我听后跟他说等我画张图给你看吧。这篇文章分享给所有计算机专业的大学生，希望能帮
+      
+    
+    </summary>
+    
+    
+      <category term="经验贴" scheme="http://yoursite.com/categories/%E7%BB%8F%E9%AA%8C%E8%B4%B4/"/>
+    
+    
+      <category term="2020" scheme="http://yoursite.com/tags/2020/"/>
+    
+      <category term="计算机" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+      <category term="就业" scheme="http://yoursite.com/tags/%E5%B0%B1%E4%B8%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>全方位认识HBase：一个值得拥有的NoSQL数据库（一）</title>
