@@ -39,11 +39,11 @@
       <category term="HBase" scheme="http://yoursite.com/categories/HBase/"/>
     
     
-      <category term="大数据" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
       <category term="2020" scheme="http://yoursite.com/tags/2020/"/>
     
       <category term="HBase" scheme="http://yoursite.com/tags/HBase/"/>
+    
+      <category term="大数据" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
   </entry>
   
@@ -66,11 +66,11 @@
       <category term="Kylin" scheme="http://yoursite.com/categories/Kylin/"/>
     
     
-      <category term="Kylin" scheme="http://yoursite.com/tags/Kylin/"/>
+      <category term="2020" scheme="http://yoursite.com/tags/2020/"/>
     
       <category term="大数据" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
-      <category term="2020" scheme="http://yoursite.com/tags/2020/"/>
+      <category term="Kylin" scheme="http://yoursite.com/tags/Kylin/"/>
     
   </entry>
   
@@ -93,11 +93,11 @@
       <category term="HBase" scheme="http://yoursite.com/categories/HBase/"/>
     
     
-      <category term="大数据" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
       <category term="2020" scheme="http://yoursite.com/tags/2020/"/>
     
       <category term="HBase" scheme="http://yoursite.com/tags/HBase/"/>
+    
+      <category term="大数据" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
       <category term="SimHash" scheme="http://yoursite.com/tags/SimHash/"/>
     

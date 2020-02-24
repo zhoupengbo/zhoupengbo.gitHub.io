@@ -30,9 +30,9 @@
         <category>HBase</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>2020</tag>
         <tag>HBase</tag>
+        <tag>大数据</tag>
       </tags>
   </entry>
   <entry>
@@ -94,9 +94,9 @@
         <category>Kylin</category>
       </categories>
       <tags>
-        <tag>Kylin</tag>
-        <tag>大数据</tag>
         <tag>2020</tag>
+        <tag>大数据</tag>
+        <tag>Kylin</tag>
       </tags>
   </entry>
   <entry>
@@ -315,9 +315,9 @@
         <category>HBase</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>2020</tag>
         <tag>HBase</tag>
+        <tag>大数据</tag>
         <tag>SimHash</tag>
         <tag>文本相似度计算</tag>
       </tags>
