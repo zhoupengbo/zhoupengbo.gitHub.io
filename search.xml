@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>全方位认识HBase：一个值得拥有的NoSQL数据库（一）</title>
+    <url>/2020/02/24/%E5%85%A8%E6%96%B9%E4%BD%8D%E8%AE%A4%E8%AF%86HBase%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89%E7%9A%84NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>前言：</strong>说起HBase这门技术，在认知上对于稍微接触或使用过它的人来讲，可能只是百千数据库中一个很普通的库，大概就像我对Redis的认知一样：缓存嘛！可对于HBase，我确实是带着某些感情在的。今日突然萌生了一个生趣的想法，想抛开技术的视角，从情感的角度，像写小说一样，写写这位老朋友，这可能会有点滑稽吧，不过我觉得很放松。《全方位认识HBase：一个值得拥有的NoSQL数据库》：从今天起，我们就暂且认为这是一本小说的名字吧！哈哈~</p>
+</blockquote>
+<p>其实我特别想做的一件事情，就是想让更多的人来认识并使用HBase这门地地道道的大数据栈技术，当然不为别的，主要原因还是HBase真的很棒很热，自己用着感觉真的好，不好的产品我怎么会推荐给你呢？毕竟HBase这家伙不会给我一分钱的广告费~ </p>
+<p>那首先，我想给大家分享的内容就是：在我刚接触HBase这位老朋友的时候根本不想去看的一些觉得没用的东西。什么呢？其实就是特别无聊又深奥的好像还不得不问的灵魂三问：我是谁？我从哪里来？我要到哪里去？</p>
+<p>为什么想写写这个呢？真的好无聊啊~ 当然肯定不是我太无聊了，说实话，是因为对它真的有感情了，所以就想把它的前世今生全都介绍给你，可能算是一种情怀，也可能算是一种敬畏，也可能只是怕赶路的人忘了它是谁。</p>
+<h3 id="我从哪里来？"><a href="#我从哪里来？" class="headerlink" title="我从哪里来？"></a>我从哪里来？</h3><p>我们知道，HBase出现于大数据背景之下，那么谈到这个问题，我们不得不提一下当年奠定了大数据算法基础的风靡全球的Google三篇论文，也称为Google的三驾马车：Google FS[2003]、MapReduce[2004]、BigTable[2006]。三篇论文中文版链接这里提供给大家，闲来没事可以看一看。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1EIhGR6gADm2BnEh5hW4KUA </span><br><span class="line">提取码：c1wb</span><br></pre></td></tr></table></figure>
+<p>这三篇论文为何风靡全球呢？我们说随着大数据时代的到来，我们同样面临着大数据所带给我们的核心二问：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、海量数据如何存储？</span><br><span class="line">2、海量数据如何计算？</span><br><span class="line">3、海量结构化数据如何高效读写？</span><br></pre></td></tr></table></figure>
+<p>然而，而谷歌公司在2003年至2006年发布的三篇论文则为解决两个问题提供了思路。</p>
+<blockquote>
+<p> “ 我们设计并实现了 Google GFS 文件系统，一个面向大规模数据密集型应用的、可伸缩的分布式文件系统。<br>GFS 虽然运行在廉价的普遍硬件设备上，但是它依然了提供灾难冗余的能力，为大量客户机提供了高性能的<br>服务。<br>…<br>GFS 完全满足了我们对存储的需求。”</p>
+</blockquote>
+<p>Google GFS 文件系统超前的设计思想，为解决大数据时代海量数据的存储提出了解决思路，同时对今后的分布式系统设计都提供了宝贵的指导意义。而MapReduce框架则解决了大数据时代海量数据如何计算的问题，虽然现在的Spark很火，但吃水不能忘了挖井人。</p>
+<p>2006年，Google发布了第三篇重要论文。Bigtable 是一个分布式的结构化数据存储系统，它被设计用来处理海量数据：通常是分布在数千台普通服务器上的 PB 级的数据。Bigtable 的设计目的是可靠的处理 PB 级别的数据，并且能够部署到上千台机器上。用于解决Google内部海量结构化数据的存储以及高效读写问题。</p>
+<p>也正是因为这三篇论文的发表，才有了而后的HDFS、MapReduce 和 HBase，才有了2015大数据元年。下面我们详细看一下Hadoop 家族的编年史，这里你大概也可以看出HBase在Hadoop家族中的地位。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">*   2002年10月，Doug Cutting和Mike Cafarella创建了开源网页爬虫项目Nutch。</span><br><span class="line"></span><br><span class="line">*   2003年10月，Google发表Google File System论文。</span><br><span class="line"></span><br><span class="line">*   2004年7月，Doug Cutting和Mike Cafarella在Nutch中实现了类似GFS的功能，即后来HDFS的前身。</span><br><span class="line"></span><br><span class="line">*   2004年10月，Google发表了MapReduce论文。</span><br><span class="line"></span><br><span class="line">*   2005年2月，Mike Cafarella在Nutch中实现了MapReduce的最初版本。</span><br><span class="line"></span><br><span class="line">*   2006年1月，Doug Cutting加入雅虎，Yahoo!提供一个专门的团队和资源将Hadoop发展成一个可在网络上运行的系统。</span><br><span class="line"></span><br><span class="line">*   2006年2月，Apache Hadoop项目正式启动以支持MapReduce和HDFS的独立发展。</span><br><span class="line"></span><br><span class="line">*   2006年3月，Yahoo!建设了第一个Hadoop集群用于开发。</span><br><span class="line"></span><br><span class="line">*   2006年4月，第一个Apache Hadoop发布。</span><br><span class="line"></span><br><span class="line">*   2006年11月，Google发表了Bigtable论文，这最终激发了HBase库的创建。</span><br><span class="line"></span><br><span class="line">*   2007年10月，第一个可用的HBase发布了。</span><br><span class="line"></span><br><span class="line">*   2008年1月，Hadoop成为Apache顶级项目。</span><br><span class="line"></span><br><span class="line">*   2008年1月，HBase成为 Hadoop 的子项目。</span><br><span class="line"></span><br><span class="line">*   2008年6月，Hadoop的第一个SQL框架——Hive成为了Hadoop的子项目。</span><br><span class="line"></span><br><span class="line">*   2009年7月 ，MapReduce 和 HDFS成为Hadoop项目的独立子项目。</span><br><span class="line"></span><br><span class="line">*   2009年7月 ，Avro 和 Chukwa 成为Hadoop新的子项目。</span><br><span class="line"></span><br><span class="line">*   2009年10月，首届Hadoop World大会在纽约召开。</span><br><span class="line"></span><br><span class="line">*   2010年5月 ，HBase脱离Hadoop项目，成为Apache顶级项目。</span><br><span class="line"></span><br><span class="line">*   2010年9月，Hive 脱离Hadoop，成为Apache顶级项目。</span><br><span class="line"></span><br><span class="line">*   2010年9月，Pig脱离Hadoop，成为Apache顶级项目。</span><br><span class="line"></span><br><span class="line">*   2011年1月，ZooKeeper 脱离Hadoop，成为Apache顶级项目。</span><br><span class="line"></span><br><span class="line">*   2012年8月，YARN成为Hadoop子项目。</span><br><span class="line"></span><br><span class="line">*   2012年10月，第一个Hadoop原生MPP查询引擎Impala加入到了Hadoop生态圈。</span><br><span class="line"></span><br><span class="line">*  2014年2月，Spark逐渐代替MapReduce成为Hadoop的缺省执行引擎，并成为Apache基金会顶级项目。</span><br><span class="line"></span><br><span class="line">*   2015年10月，Cloudera公布继HBase以后的第一个Hadoop原生存储替代方案——Kudu。</span><br><span class="line"></span><br><span class="line">*   2015年12月，Cloudera发起的Impala和Kudu项目加入Apache孵化器。</span><br></pre></td></tr></table></figure>
+<p>好了，一张图向大家道一声晚安吧，挺晚了，该睡了~ 下一章我们再追问“我是谁？”的灵魂思考吧~ </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7875120-6600d31a054eb13f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="我从哪里来？"></p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://blog.csdn.net/lfq1532632051/article/details/53219558" target="_blank" rel="noopener">https://blog.csdn.net/lfq1532632051/article/details/53219558</a></p>
+<p><strong>关注公众号【chan-ke】可查阅更多精彩文章~</strong></p>
+]]></content>
+      <categories>
+        <category>HBase</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>2020</tag>
+        <tag>HBase</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Apache Kylin 1.0中的混合模型</title>
     <url>/2020/02/05/Apache-Kylin-1.0%E4%B8%AD%E7%9A%84%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B/</url>
     <content><![CDATA[<p>Apache Kylin v1.0引入了一个新的实现“混合模型”（也称为“动态模型”）; 这篇文章介绍了这个概念以及如何创建一个混合实例。</p>
