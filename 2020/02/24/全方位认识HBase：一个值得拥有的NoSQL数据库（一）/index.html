@@ -21,7 +21,7 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
+    hostname: new URL('https://zhoupengbo.gitee.io').hostname,
     root: '/',
     scheme: 'Mist',
     version: '7.7.1',
@@ -51,7 +51,7 @@
   <meta name="description" content="前言：说起HBase这门技术，在认知上对于稍微接触或使用过它的人来讲，可能只是百千数据库中一个很普通的库，大概就像我对Redis的认知一样：缓存嘛！可对于HBase，我确实是带着某些感情在的。今日突然萌生了一个生趣的想法，想抛开技术的视角，从情感的角度，像写小说一样，写写这位老朋友，这可能会有点滑稽吧，不过我觉得很放松。《全方位认识HBase：一个值得拥有的NoSQL数据库》：从今天起，我们就暂">
 <meta property="og:type" content="article">
 <meta property="og:title" content="全方位认识HBase：一个值得拥有的NoSQL数据库（一）">
-<meta property="og:url" content="http://yoursite.com/2020/02/24/%E5%85%A8%E6%96%B9%E4%BD%8D%E8%AE%A4%E8%AF%86HBase%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89%E7%9A%84NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:url" content="https://zhoupengbo.gitee.io/2020/02/24/%E5%85%A8%E6%96%B9%E4%BD%8D%E8%AE%A4%E8%AF%86HBase%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89%E7%9A%84NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="漫泊今生 扶垚而上">
 <meta property="og:description" content="前言：说起HBase这门技术，在认知上对于稍微接触或使用过它的人来讲，可能只是百千数据库中一个很普通的库，大概就像我对Redis的认知一样：缓存嘛！可对于HBase，我确实是带着某些感情在的。今日突然萌生了一个生趣的想法，想抛开技术的视角，从情感的角度，像写小说一样，写写这位老朋友，这可能会有点滑稽吧，不过我觉得很放松。《全方位认识HBase：一个值得拥有的NoSQL数据库》：从今天起，我们就暂">
 <meta property="og:locale" content="zh_CN">
@@ -59,13 +59,13 @@
 <meta property="article:published_time" content="2020-02-24T10:25:14.000Z">
 <meta property="article:modified_time" content="2020-02-24T11:20:51.383Z">
 <meta property="article:author" content="zhou.pengbo">
-<meta property="article:tag" content="大数据">
 <meta property="article:tag" content="2020">
 <meta property="article:tag" content="HBase">
+<meta property="article:tag" content="大数据">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2020/02/24/UrTuh5aOBl4fqkD.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/24/%E5%85%A8%E6%96%B9%E4%BD%8D%E8%AE%A4%E8%AF%86HBase%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89%E7%9A%84NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/">
+<link rel="canonical" href="https://zhoupengbo.gitee.io/2020/02/24/%E5%85%A8%E6%96%B9%E4%BD%8D%E8%AE%A4%E8%AF%86HBase%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89%E7%9A%84NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -223,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/24/%E5%85%A8%E6%96%B9%E4%BD%8D%E8%AE%A4%E8%AF%86HBase%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89%E7%9A%84NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://zhoupengbo.gitee.io/2020/02/24/%E5%85%A8%E6%96%B9%E4%BD%8D%E8%AE%A4%E8%AF%86HBase%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89%E7%9A%84NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar2.jpg">
@@ -386,7 +386,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/02/24/%E5%85%A8%E6%96%B9%E4%BD%8D%E8%AE%A4%E8%AF%86HBase%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89%E7%9A%84NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/" title="全方位认识HBase：一个值得拥有的NoSQL数据库（一）">http://yoursite.com/2020/02/24/全方位认识HBase：一个值得拥有的NoSQL数据库（一）/</a>
+    <a href="https://zhoupengbo.gitee.io/2020/02/24/%E5%85%A8%E6%96%B9%E4%BD%8D%E8%AE%A4%E8%AF%86HBase%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%80%BC%E5%BE%97%E6%8B%A5%E6%9C%89%E7%9A%84NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/" title="全方位认识HBase：一个值得拥有的NoSQL数据库（一）">https://zhoupengbo.gitee.io/2020/02/24/全方位认识HBase：一个值得拥有的NoSQL数据库（一）/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -437,9 +437,9 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
               <a href="/tags/2020/" rel="tag"><i class="fa fa-tag"></i> 2020</a>
               <a href="/tags/HBase/" rel="tag"><i class="fa fa-tag"></i> HBase</a>
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
           </div>
 
         
