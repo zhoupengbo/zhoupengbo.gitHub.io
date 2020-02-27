@@ -35,13 +35,13 @@
       <category term="小玩意儿" scheme="https://zhoupengbo.gitee.io/categories/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/"/>
     
     
-      <category term="2020" scheme="https://zhoupengbo.gitee.io/tags/2020/"/>
-    
       <category term="Hexo" scheme="https://zhoupengbo.gitee.io/tags/Hexo/"/>
     
       <category term="Gitee Pages" scheme="https://zhoupengbo.gitee.io/tags/Gitee-Pages/"/>
     
       <category term="个人博客" scheme="https://zhoupengbo.gitee.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="2020" scheme="https://zhoupengbo.gitee.io/tags/2020/"/>
     
   </entry>
   
@@ -95,9 +95,9 @@
       <category term="HBase" scheme="https://zhoupengbo.gitee.io/categories/HBase/"/>
     
     
-      <category term="大数据" scheme="https://zhoupengbo.gitee.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
       <category term="2020" scheme="https://zhoupengbo.gitee.io/tags/2020/"/>
+    
+      <category term="大数据" scheme="https://zhoupengbo.gitee.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
       <category term="HBase" scheme="https://zhoupengbo.gitee.io/tags/HBase/"/>
     
@@ -122,11 +122,11 @@
       <category term="Kylin" scheme="https://zhoupengbo.gitee.io/categories/Kylin/"/>
     
     
+      <category term="2020" scheme="https://zhoupengbo.gitee.io/tags/2020/"/>
+    
       <category term="Kylin" scheme="https://zhoupengbo.gitee.io/tags/Kylin/"/>
     
       <category term="大数据" scheme="https://zhoupengbo.gitee.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="2020" scheme="https://zhoupengbo.gitee.io/tags/2020/"/>
     
   </entry>
   
@@ -149,9 +149,9 @@
       <category term="HBase" scheme="https://zhoupengbo.gitee.io/categories/HBase/"/>
     
     
-      <category term="大数据" scheme="https://zhoupengbo.gitee.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
       <category term="2020" scheme="https://zhoupengbo.gitee.io/tags/2020/"/>
+    
+      <category term="大数据" scheme="https://zhoupengbo.gitee.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
       <category term="HBase" scheme="https://zhoupengbo.gitee.io/tags/HBase/"/>
     

@@ -76,10 +76,10 @@
         <category>小玩意儿</category>
       </categories>
       <tags>
-        <tag>2020</tag>
         <tag>Hexo</tag>
         <tag>Gitee Pages</tag>
         <tag>个人博客</tag>
+        <tag>2020</tag>
       </tags>
   </entry>
   <entry>
@@ -144,8 +144,8 @@
         <category>HBase</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>2020</tag>
+        <tag>大数据</tag>
         <tag>HBase</tag>
       </tags>
   </entry>
@@ -208,9 +208,9 @@
         <category>Kylin</category>
       </categories>
       <tags>
+        <tag>2020</tag>
         <tag>Kylin</tag>
         <tag>大数据</tag>
-        <tag>2020</tag>
       </tags>
   </entry>
   <entry>
@@ -429,8 +429,8 @@
         <category>HBase</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>2020</tag>
+        <tag>大数据</tag>
         <tag>HBase</tag>
         <tag>SimHash</tag>
         <tag>文本相似度</tag>
