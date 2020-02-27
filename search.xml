@@ -9,9 +9,9 @@
 <p><strong>首页图</strong>展示效果如下所示：</p>
 <p><img src="https://i.loli.net/2020/02/27/mO6bHuZkLijPSCz.png" alt="周蓬勃的博客首页"></p>
 <p>大量的坑我已踩过，大家不必从零做起，简单说只需复制我的博客，然后做稍微改动就可以！好了，想动手的朋友下面就跟着我的脚步去搞一个全网所有用户都可以访问到的以你自己的名字或是你喜欢的名字命名的博客系统吧！为了大家能够更好更简单理解和操作，本文还为大家附上了大量贴图~ </p>
-<h2 id="一-部署环境介绍"><a href="#一-部署环境介绍" class="headerlink" title="一. 部署环境介绍"></a>一. 部署环境介绍</h2><p>本文搭建博客系统环境（<strong>不懂不熟没关系</strong>）介绍如下：<br>|软件/工具|版本|<br>|–|–|<br>|操作系统|Windows 10 64位|<br>|Git| 2.7.2 |<br>|Node.js|12.14.1|<br>|Hexo| 4.2.0|<br>|HexoEditor| 1.5.30|</p>
+<h2 id="部署环境介绍"><a href="#部署环境介绍" class="headerlink" title="部署环境介绍"></a>部署环境介绍</h2><p>本文搭建博客系统环境（<strong>不懂不熟没关系</strong>）介绍如下：<br>|软件/工具|版本|<br>|–|–|<br>|操作系统|Windows 10 64位|<br>|Git| 2.7.2 |<br>|Node.js|12.14.1|<br>|Hexo| 4.2.0|<br>|HexoEditor| 1.5.30|</p>
 <p><strong>技术架构： Hexo + NexT + Gitee Pages</strong> （GitHub Pages国内速度太慢，也可以选择Coding Pages，不懂不熟没关系，接着看下文）</p>
-<h2 id="二-基础环境安装"><a href="#二-基础环境安装" class="headerlink" title="二. 基础环境安装"></a>二. 基础环境安装</h2><h3 id="1-软件包下载"><a href="#1-软件包下载" class="headerlink" title="1. 软件包下载"></a>1. 软件包下载</h3><p>构建博客所需软件包我已整理好存于百度云，永久有效，请在计算机中任意选择一个目录下载资料包（建议选择磁盘根目录）。下载链接如下：</p>
+<h2 id="基础环境安装"><a href="#基础环境安装" class="headerlink" title="基础环境安装"></a>基础环境安装</h2><h3 id="软件包下载"><a href="#软件包下载" class="headerlink" title="软件包下载"></a>软件包下载</h3><p>构建博客所需软件包我已整理好存于百度云，永久有效，请在计算机中任意选择一个目录下载资料包（建议选择磁盘根目录）。下载链接如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1uD2nO-fTekj89puJHQ20yw </span><br><span class="line">提取码：h4qa</span><br></pre></td></tr></table></figure>
 
 <p>下载完后是一个名为myblog的文件夹，如图：</p>
@@ -19,33 +19,33 @@
 <p>此时，我的文件夹全路径为：<strong>Z:\myblog</strong>，目录下为所需软件资料，如图：</p>
 <p><img src="https://i.loli.net/2020/02/27/QVcNZHgPlnmtbv7.png" alt=""></p>
 <p>下面我们开始软件包的安装工作，就像安装微信一样简单。</p>
-<h3 id="2-软件包安装"><a href="#2-软件包安装" class="headerlink" title="2. 软件包安装"></a>2. 软件包安装</h3><p><strong>注意</strong>：此后所有操作全部在根目录<strong>Z:\myblog</strong>下进行。</p>
-<h4 id="2-1-Git-安装"><a href="#2-1-Git-安装" class="headerlink" title="2.1 Git 安装"></a>2.1 Git 安装</h4><p><strong>安装文件：</strong>Z:\myblog\Git-2.24.0-64-bit.exe<br>双击进行安装，一路next即可。（可自定义安装路径）<br>如有不明，请参考网上这篇详细文档：<br><a href="https://blog.csdn.net/qq_32786873/article/details/80570783" target="_blank" rel="noopener">https://blog.csdn.net/qq_32786873/article/details/80570783</a><br>验证安装是否成功：选择任意目录，右击，选择<strong>Git Bash Here</strong>选项，如图：</p>
+<h3 id="软件包安装"><a href="#软件包安装" class="headerlink" title="软件包安装"></a>软件包安装</h3><p><strong>注意</strong>：此后所有操作全部在根目录<strong>Z:\myblog</strong>下进行。</p>
+<h4 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h4><p><strong>安装文件：</strong>Z:\myblog\Git-2.24.0-64-bit.exe<br>双击进行安装，一路next即可。（可自定义安装路径）<br>如有不明，请参考网上这篇详细文档：<br><a href="https://blog.csdn.net/qq_32786873/article/details/80570783" target="_blank" rel="noopener">https://blog.csdn.net/qq_32786873/article/details/80570783</a><br>验证安装是否成功：选择任意目录，右击，选择<strong>Git Bash Here</strong>选项，如图：</p>
 <p><img src="https://i.loli.net/2020/02/27/7PpaX82fr4EU1AV.png" alt=""></p>
 <p>出现如下窗口，输入<strong>git –version</strong> 返回Git 版本即安装成功，如图：</p>
 <p><img src="https://i.loli.net/2020/02/27/yGWQpOfYxILKMwA.png" alt=""></p>
-<h4 id="2-2-Node-js-安装"><a href="#2-2-Node-js-安装" class="headerlink" title="2.2 Node.js 安装"></a>2.2 Node.js 安装</h4><p><strong>安装文件：</strong>Z:\myblog\node-v12.14.1-x64.msi<br>双击进行安装，一路next即可。（可自定义安装路径）<br>如有不明，请参考网上这篇详细文档：<br><a href="https://www.cnblogs.com/zhouyu2017/p/6485265.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhouyu2017/p/6485265.html</a><br>验证安装是否成功：选择任意目录，右击，选择<strong>Git Bash Here</strong>选项，输入<strong>node -v</strong> 返回版本即安装成功，如图：</p>
+<h4 id="Node-js-安装"><a href="#Node-js-安装" class="headerlink" title="Node.js 安装"></a>Node.js 安装</h4><p><strong>安装文件：</strong>Z:\myblog\node-v12.14.1-x64.msi<br>双击进行安装，一路next即可。（可自定义安装路径）<br>如有不明，请参考网上这篇详细文档：<br><a href="https://www.cnblogs.com/zhouyu2017/p/6485265.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhouyu2017/p/6485265.html</a><br>验证安装是否成功：选择任意目录，右击，选择<strong>Git Bash Here</strong>选项，输入<strong>node -v</strong> 返回版本即安装成功，如图：</p>
 <p><img src="https://i.loli.net/2020/02/27/FgIlx2uhYCm9VjP.png" alt="node.png"></p>
-<h4 id="2-3-HexoEditor-编辑器安装"><a href="#2-3-HexoEditor-编辑器安装" class="headerlink" title="2.3 HexoEditor 编辑器安装"></a>2.3 HexoEditor 编辑器安装</h4><p><strong>安装文件：</strong>Z:\myblog\HexoEditor.zip<br>解压文件到当前文件夹，进入HexoEditor目录，找到<strong>start.cmd</strong>文件，依次点击【<strong>右击</strong>】【<strong>发送到</strong>】【<strong>桌面快捷方式</strong>】，这时候桌面已经生成快捷方式，我们双击打开（稍等片刻），点击左下角图标打开后如下图：</p>
+<h4 id="HexoEditor-编辑器安装"><a href="#HexoEditor-编辑器安装" class="headerlink" title="HexoEditor 编辑器安装"></a>HexoEditor 编辑器安装</h4><p><strong>安装文件：</strong>Z:\myblog\HexoEditor.zip<br>解压文件到当前文件夹，进入HexoEditor目录，找到<strong>start.cmd</strong>文件，依次点击【<strong>右击</strong>】【<strong>发送到</strong>】【<strong>桌面快捷方式</strong>】，这时候桌面已经生成快捷方式，我们双击打开（稍等片刻），点击左下角图标打开后如下图：</p>
 <p><img src="https://i.loli.net/2020/02/27/g31UuTqKMEhGBRl.png" alt="博客编辑器"></p>
 <p>这就是我们以后写博客的编辑器了，后面会详细介绍如何使用。</p>
-<h4 id="2-4-解压blog-zip"><a href="#2-4-解压blog-zip" class="headerlink" title="2.4 解压blog.zip"></a>2.4 解压blog.zip</h4><p>右击文件，选择解压到当前文件夹即可。该压缩包也就是我的博客的原型。<br>现在的目录是这样子的：</p>
+<h4 id="解压blog-zip"><a href="#解压blog-zip" class="headerlink" title="解压blog.zip"></a>解压blog.zip</h4><p>右击文件，选择解压到当前文件夹即可。该压缩包也就是我的博客的原型。<br>现在的目录是这样子的：</p>
 <p><img src="https://i.loli.net/2020/02/27/qw5RCUukhaJWS6D.png" alt=""></p>
-<h4 id="2-5-安装模块"><a href="#2-5-安装模块" class="headerlink" title="2.5 安装模块"></a>2.5 安装模块</h4><p>进入<strong>Z:\myblog\blog</strong>，右击选择<strong>Git Bash Here</strong>选项，复制粘贴至命令行以执行以下命令：</p>
+<h4 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h4><p>进入<strong>Z:\myblog\blog</strong>，右击选择<strong>Git Bash Here</strong>选项，复制粘贴至命令行以执行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli;npm install hexo-deployer-git --save;npm install hexo-generator-archive --save;npm install hexo-generator-category --save;npm install hexo-generator-feed --save;npm install hexo-generator-index-pin-top --save;npm install hexo-generator-searchdb --save;npm install hexo-generator-tag --save;npm install hexo-lazyload-image --save;npm install hexo-related-popular-posts --save;npm install hexo-renderer-ejs --save;npm install hexo-renderer-marked --save;npm install hexo-renderer-stylus --save;npm install hexo-server --save;npm install hexo-symbols-count-time --save;npm install hexo-tag-cloud</span><br></pre></td></tr></table></figure>
 
 <p>这个过程需要等待一点时间，请耐心等待。</p>
-<h3 id="3-Pages-服务启动"><a href="#3-Pages-服务启动" class="headerlink" title="3. Pages 服务启动"></a>3. Pages 服务启动</h3><h4 id="3-1-码云注册"><a href="#3-1-码云注册" class="headerlink" title="3.1 码云注册"></a>3.1 码云注册</h4><p>先登陆码云注册平台<a href="https://gitee.com/signup" target="_blank" rel="noopener">https://gitee.com/signup</a> 注册一个账号，这里你需要一个属于自己的邮箱账号进行注册。<br>填写姓名，默认个人空间名默认是姓名，请保持一致，填写邮箱，验证码，密码完成注册。如图：</p>
+<h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h3 id="Pages-服务启动"><a href="#Pages-服务启动" class="headerlink" title="Pages 服务启动"></a>Pages 服务启动</h3><h4 id="码云注册"><a href="#码云注册" class="headerlink" title="码云注册"></a>码云注册</h4><p>先登陆码云注册平台<a href="https://gitee.com/signup" target="_blank" rel="noopener">https://gitee.com/signup</a> 注册一个账号，这里你需要一个属于自己的邮箱账号进行注册。<br>填写姓名，默认个人空间名默认是姓名，请保持一致，填写邮箱，验证码，密码完成注册。如图：</p>
 <p><img src="https://i.loli.net/2020/02/27/e8dDZiN7lRzB2KT.png" alt="码云账号注册"></p>
-<h4 id="3-2-绑定手机号"><a href="#3-2-绑定手机号" class="headerlink" title="3.2 绑定手机号"></a>3.2 绑定手机号</h4><p>完成注册我们进入码云主页面，点击右上角头像，依次选择【<strong>设置</strong>】【<strong>绑定号码</strong>】完成手机号绑定。如图：</p>
+<h4 id="绑定手机号"><a href="#绑定手机号" class="headerlink" title="绑定手机号"></a>绑定手机号</h4><p>完成注册我们进入码云主页面，点击右上角头像，依次选择【<strong>设置</strong>】【<strong>绑定号码</strong>】完成手机号绑定。如图：</p>
 <p><img src="https://i.loli.net/2020/02/27/3AK86S4fup7vgoz.png" alt=""></p>
 <p>显示如下说明绑定成功！</p>
 <p><img src="https://i.loli.net/2020/02/27/d9F8krp4AJY2aTs.png" alt=""></p>
-<h4 id="3-3-新建仓库"><a href="#3-3-新建仓库" class="headerlink" title="3.3 新建仓库"></a>3.3 新建仓库</h4><p>不懂没关系，按图操作即可。可以简单理解为新建一个项目。<br>点击右上角 <strong>+</strong> 号，选择【<strong>新建仓库</strong>】，按下图进行操作：</p>
+<h4 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h4><p>不懂没关系，按图操作即可。可以简单理解为新建一个项目。<br>点击右上角 <strong>+</strong> 号，选择【<strong>新建仓库</strong>】，按下图进行操作：</p>
 <p><img src="https://i.loli.net/2020/02/27/ebK9V8jtoMClsBy.png" alt=""></p>
 <p><img src="https://i.loli.net/2020/02/27/JyrpmUSXAQ5kf2l.png" alt=""></p>
 <p>点击创建即可，至此仓库创建完毕。</p>
-<h4 id="3-4-开启Pages服务"><a href="#3-4-开启Pages服务" class="headerlink" title="3.4 开启Pages服务"></a>3.4 开启Pages服务</h4><p>我们的博客要想正常运行，需要托管在此服务上。创建仓库完毕后页面会自动跳转至仓库页面，如下图。我们选择【<strong>服务</strong>】【<strong>Gitee Pages</strong>】【<strong>启动</strong>】，启动完毕后记得选择免费试用一个月（免部署），并记好自己的博客地址哦！</p>
+<h4 id="开启Pages服务"><a href="#开启Pages服务" class="headerlink" title="开启Pages服务"></a>开启Pages服务</h4><p>我们的博客要想正常运行，需要托管在此服务上。创建仓库完毕后页面会自动跳转至仓库页面，如下图。我们选择【<strong>服务</strong>】【<strong>Gitee Pages</strong>】【<strong>启动</strong>】，启动完毕后记得选择免费试用一个月（免部署），并记好自己的博客地址哦！</p>
 <p><img src="https://i.loli.net/2020/02/27/9xOb3yNdKXvjBLP.png" alt=""></p>
 <p><img src="https://i.loli.net/2020/02/27/9qM4hrYOlUwetgu.png" alt=""></p>
 <p>一个月到期后，如果我们更新博文，需要到这里重新部署服务才会更新哦~</p>
@@ -53,21 +53,21 @@
 <p>下面我们访问一下自己的博客地址看看丑不丑吧！哈哈哈~</p>
 <p><img src="https://i.loli.net/2020/02/27/SmulBRfKshApwnG.png" alt=""></p>
 <p>这就是我们的初始页面，相当丑，下面我们就来美化一下它，将我自己的博客模板套上去。</p>
-<h3 id="4-博客换装"><a href="#4-博客换装" class="headerlink" title="4. 博客换装"></a>4. 博客换装</h3><h4 id="4-1-设置头像"><a href="#4-1-设置头像" class="headerlink" title="4.1 设置头像"></a>4.1 设置头像</h4><p>替换以下图片为自己的头像，建议图片不要太大。<br><strong>Z:\myblog\blog\themes\next\source\images\avatar.gif</strong></p>
-<h4 id="4-2-修改博客配置"><a href="#4-2-修改博客配置" class="headerlink" title="4.2 修改博客配置"></a>4.2 修改博客配置</h4><p>打开博客配置文件：<strong>Z:\myblog\blog_config.yml</strong><br>1） 更改为自己的博客名称、描述、作者。</p>
+<h3 id="博客换装"><a href="#博客换装" class="headerlink" title="博客换装"></a>博客换装</h3><h4 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h4><p>替换以下图片为自己的头像，建议图片不要太大。<br><strong>Z:\myblog\blog\themes\next\source\images\avatar.gif</strong></p>
+<h4 id="修改博客配置"><a href="#修改博客配置" class="headerlink" title="修改博客配置"></a>修改博客配置</h4><p>打开博客配置文件：<strong>Z:\myblog\blog_config.yml</strong><br>1） 更改为自己的博客名称、描述、作者。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 请填写博客名称</span><br><span class="line">description: &#39;请填写博客描述&#39;</span><br><span class="line">author: 请填写作者名</span><br></pre></td></tr></table></figure>
 
 <p>2） 将所有的 <strong>‘yoursite’</strong> 替换为你的仓库名，例如我的仓库名为：<strong>‘luckyzpb’</strong>。<br>3） 保存文件，关闭文件。</p>
-<h3 id="5-部署博客"><a href="#5-部署博客" class="headerlink" title="5. 部署博客"></a>5. 部署博客</h3><p>最后，我们需要将我的博客模板部署到Gitee Pages上，现在我们回到目录 <strong>Z:\myblog\blog</strong> , 右击，选择<strong>Git Bash Here</strong>选项，依次输入以下命令：</p>
+<h3 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h3><p>最后，我们需要将我的博客模板部署到Gitee Pages上，现在我们回到目录 <strong>Z:\myblog\blog</strong> , 右击，选择<strong>Git Bash Here</strong>选项，依次输入以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git config --global credential.helper store</span><br><span class="line"># 需替换为你注册码云时的用户名，如luckyzpb</span><br><span class="line">$ git config --global user.name &quot;Your&#39;s name&quot;</span><br><span class="line"># 需替换为你注册码云时的邮箱</span><br><span class="line">$ git config --global user.email &quot;Your&#39;s email address&quot;</span><br><span class="line">$ hexo clean;hexo g;hexo d</span><br></pre></td></tr></table></figure>
 <p>第一次需要输入注册码云时的用户名和密码。部署完毕我们就可以访问我们的博客了，这样属于自己的一个博客系统或个人主页就做好了。</p>
 <p><strong>注：上文说的试用期一个月结束之后，我们需进入码云个人仓库Pages页面点击【</strong>更新<strong>】按钮手动部署。</strong></p>
 <p>换装后的博客：</p>
 <p><img src="https://i.loli.net/2020/02/27/971ihITGP8OwWSu.png" alt=""></p>
-<h3 id="6-更新博文"><a href="#6-更新博文" class="headerlink" title="6. 更新博文"></a>6. 更新博文</h3><p>最后说一下HexoEditor工具的使用。打开HexoEditor，点击左下角，点击新建Post，然后就可以写文章了。如图：</p>
+<h3 id="更新博文"><a href="#更新博文" class="headerlink" title="更新博文"></a>更新博文</h3><p>最后说一下HexoEditor工具的使用。打开HexoEditor，点击左下角，点击新建Post，然后就可以写文章了。如图：</p>
 <p><img src="https://i.loli.net/2020/02/27/YoegVCOFdLQtDTs.png" alt=""></p>
 <p>写完文章后，ctrl+s 保存。右键选择【Hexo】【一键部署】新写的文章就发布到我们的博客咯~ </p>
-<h3 id="7-最后声明"><a href="#7-最后声明" class="headerlink" title="7. 最后声明"></a>7. 最后声明</h3><p>虽然是小白式教程，但是还是希望大家可以私下里自己了解一些基本概念，比如：Gitee Pages、Hexo、NexT、Git、Node.js，相信自己可以做出更加漂亮的博客~</p>
+<h2 id="最后声明"><a href="#最后声明" class="headerlink" title="最后声明"></a>最后声明</h2><p>虽然是小白式教程，但是还是希望大家可以私下里自己了解一些基本概念，比如：Gitee Pages、Hexo、NexT、Git、Node.js、图床、MarkDown 等，相信自己可以做出更加漂亮的博客~</p>
 <p>如果觉得不错就分享给自己的朋友们吧~ 如果有任何问题，可以进入我的个人公众号【<strong>chan-ke</strong>】依次点击【<strong>点我</strong>】【<strong>加我好友</strong>】添加我的个人微信为您答疑解惑~</p>
 <p><img src="https://i.loli.net/2020/02/27/1qh4UJ3l8rKNzMY.jpg" alt=""></p>
 <p>关注公众号可查阅更多精彩文章▲</p>
