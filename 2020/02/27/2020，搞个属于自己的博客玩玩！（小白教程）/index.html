@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://zhoupengbo.gitee.io').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.7.1',
+    exturl: false,
+    sidebar: {"position":"right","width":250,"display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="前言：之前一直羡慕别人都有自己的博客，或者说个人主页，2020了，咱也搞一个玩玩！本教程面向每一个想拥有它的人，不需要有什么基础，不需要懂什么IT技术，当然也不需要去买一个服务器或花你一分钱。你只需要懂得下载、安装、注册、复制、粘贴，然后照着教程走，就一定能拥有一个属于自己的Blog Or Zone！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020，搞个属于自己的博客玩玩！（小白教程）">
+<meta property="og:url" content="https://zhoupengbo.gitee.io/2020/02/27/2020%EF%BC%8C%E6%90%9E%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%8E%A9%E7%8E%A9%EF%BC%81%EF%BC%88%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B%EF%BC%89/index.html">
+<meta property="og:site_name" content="漫泊今生 扶垚而上">
+<meta property="og:description" content="前言：之前一直羡慕别人都有自己的博客，或者说个人主页，2020了，咱也搞一个玩玩！本教程面向每一个想拥有它的人，不需要有什么基础，不需要懂什么IT技术，当然也不需要去买一个服务器或花你一分钱。你只需要懂得下载、安装、注册、复制、粘贴，然后照着教程走，就一定能拥有一个属于自己的Blog Or Zone！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/mO6bHuZkLijPSCz.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/4wVTv5GQqcWP8Yx.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/QVcNZHgPlnmtbv7.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/7PpaX82fr4EU1AV.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/yGWQpOfYxILKMwA.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/FgIlx2uhYCm9VjP.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/g31UuTqKMEhGBRl.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/qw5RCUukhaJWS6D.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/e8dDZiN7lRzB2KT.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/3AK86S4fup7vgoz.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/d9F8krp4AJY2aTs.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/ebK9V8jtoMClsBy.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/JyrpmUSXAQ5kf2l.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/9xOb3yNdKXvjBLP.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/9qM4hrYOlUwetgu.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/rKRpAlae7Ygf2zI.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/SmulBRfKshApwnG.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/971ihITGP8OwWSu.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/YoegVCOFdLQtDTs.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/27/1qh4UJ3l8rKNzMY.jpg">
+<meta property="article:published_time" content="2020-02-27T11:25:16.000Z">
+<meta property="article:modified_time" content="2020-02-27T12:12:15.888Z">
+<meta property="article:author" content="zhou.pengbo">
+<meta property="article:tag" content="2020">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Gitee Pages">
+<meta property="article:tag" content="个人博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/02/27/mO6bHuZkLijPSCz.png">
+
+<link rel="canonical" href="https://zhoupengbo.gitee.io/2020/02/27/2020%EF%BC%8C%E6%90%9E%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%8E%A9%E7%8E%A9%EF%BC%81%EF%BC%88%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>2020，搞个属于自己的博客玩玩！（小白教程） | 漫泊今生 扶垚而上</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cb245b5fbb207868ecfcad91e5dd1f24";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="漫泊今生 扶垚而上" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">漫泊今生 扶垚而上</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhoupengbo.gitee.io/2020/02/27/2020%EF%BC%8C%E6%90%9E%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%8E%A9%E7%8E%A9%EF%BC%81%EF%BC%88%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar2.jpg">
+      <meta itemprop="name" content="zhou.pengbo">
+      <meta itemprop="description" content="怀敬畏心，做踏实人。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="漫泊今生 扶垚而上">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          2020，搞个属于自己的博客玩玩！（小白教程）
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-27 19:25:16 / 修改时间：20:12:15" itemprop="dateCreated datePublished" datetime="2020-02-27T19:25:16+08:00">2020-02-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" itemprop="url" rel="index">
+                    <span itemprop="name">小玩意儿</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/27/2020%EF%BC%8C%E6%90%9E%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%8E%A9%E7%8E%A9%EF%BC%81%EF%BC%88%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="2020，搞个属于自己的博客玩玩！（小白教程）" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/02/27/2020%EF%BC%8C%E6%90%9E%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%8E%A9%E7%8E%A9%EF%BC%81%EF%BC%88%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/27/2020%EF%BC%8C%E6%90%9E%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%8E%A9%E7%8E%A9%EF%BC%81%EF%BC%88%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>前言：</strong>之前一直羡慕别人都有自己的博客，或者说个人主页，2020了，咱也搞一个玩玩！本教程面向每一个想拥有它的人，不需要有什么基础，不需要懂什么IT技术，当然也不需要去买一个服务器或花你一分钱。你只需要懂得下载、安装、注册、复制、粘贴，然后照着教程走，就一定能拥有一个属于自己的Blog Or Zone！</p>
+<a id="more"></a>
+<p><strong>开篇之前</strong>，先让大家看看我在2020年刚刚为自己搭建的专属博客吧！不喜勿喷哦~<br><a href="https://zhoupengbo.gitee.io/">博客地址：https://zhoupengbo.gitee.io/</a>，大家可以在浏览器地址栏访问一下看看效果。<br>支持功能：文章分类、标签云、文章归档、站内搜索、文章评论、打赏、阅读数统计、cdn、自动生成文章目录 等。</p>
+<p><strong>首页图</strong>展示效果如下所示：</p>
+<p><img src="https://i.loli.net/2020/02/27/mO6bHuZkLijPSCz.png" alt="周蓬勃的博客首页"></p>
+<p>大量的坑我已踩过，大家不必从零做起，简单说只需复制我的博客，然后做稍微改动就可以！好了，想动手的朋友下面就跟着我的脚步去搞一个全网所有用户都可以访问到的以你自己的名字或是你喜欢的名字命名的博客系统吧！为了大家能够更好更简单理解和操作，本文还为大家附上了大量贴图~ </p>
+<h2 id="一-部署环境介绍"><a href="#一-部署环境介绍" class="headerlink" title="一. 部署环境介绍"></a>一. 部署环境介绍</h2><p>本文搭建博客系统环境（<strong>不懂不熟没关系</strong>）介绍如下：<br>|软件/工具|版本|<br>|–|–|<br>|操作系统|Windows 10 64位|<br>|Git| 2.7.2 |<br>|Node.js|12.14.1|<br>|Hexo| 4.2.0|<br>|HexoEditor| 1.5.30|</p>
+<p><strong>技术架构： Hexo + NexT + Gitee Pages</strong> （GitHub Pages国内速度太慢，也可以选择Coding Pages，不懂不熟没关系，接着看下文）</p>
+<h2 id="二-基础环境安装"><a href="#二-基础环境安装" class="headerlink" title="二. 基础环境安装"></a>二. 基础环境安装</h2><h3 id="1-软件包下载"><a href="#1-软件包下载" class="headerlink" title="1. 软件包下载"></a>1. 软件包下载</h3><p>构建博客所需软件包我已整理好存于百度云，永久有效，请在计算机中任意选择一个目录下载资料包（建议选择磁盘根目录）。下载链接如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1uD2nO-fTekj89puJHQ20yw </span><br><span class="line">提取码：h4qa</span><br></pre></td></tr></table></figure>
+
+<p>下载完后是一个名为myblog的文件夹，如图：</p>
+<p><img src="https://i.loli.net/2020/02/27/4wVTv5GQqcWP8Yx.png" alt=""></p>
+<p>此时，我的文件夹全路径为：<strong>Z:\myblog</strong>，目录下为所需软件资料，如图：</p>
+<p><img src="https://i.loli.net/2020/02/27/QVcNZHgPlnmtbv7.png" alt=""></p>
+<p>下面我们开始软件包的安装工作，就像安装微信一样简单。</p>
+<h3 id="2-软件包安装"><a href="#2-软件包安装" class="headerlink" title="2. 软件包安装"></a>2. 软件包安装</h3><p><strong>注意</strong>：此后所有操作全部在根目录<strong>Z:\myblog</strong>下进行。</p>
+<h4 id="2-1-Git-安装"><a href="#2-1-Git-安装" class="headerlink" title="2.1 Git 安装"></a>2.1 Git 安装</h4><p><strong>安装文件：</strong>Z:\myblog\Git-2.24.0-64-bit.exe<br>双击进行安装，一路next即可。（可自定义安装路径）<br>如有不明，请参考网上这篇详细文档：<br><a href="https://blog.csdn.net/qq_32786873/article/details/80570783" target="_blank" rel="noopener">https://blog.csdn.net/qq_32786873/article/details/80570783</a><br>验证安装是否成功：选择任意目录，右击，选择<strong>Git Bash Here</strong>选项，如图：</p>
+<p><img src="https://i.loli.net/2020/02/27/7PpaX82fr4EU1AV.png" alt=""></p>
+<p>出现如下窗口，输入<strong>git –version</strong> 返回Git 版本即安装成功，如图：</p>
+<p><img src="https://i.loli.net/2020/02/27/yGWQpOfYxILKMwA.png" alt=""></p>
+<h4 id="2-2-Node-js-安装"><a href="#2-2-Node-js-安装" class="headerlink" title="2.2 Node.js 安装"></a>2.2 Node.js 安装</h4><p><strong>安装文件：</strong>Z:\myblog\node-v12.14.1-x64.msi<br>双击进行安装，一路next即可。（可自定义安装路径）<br>如有不明，请参考网上这篇详细文档：<br><a href="https://www.cnblogs.com/zhouyu2017/p/6485265.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhouyu2017/p/6485265.html</a><br>验证安装是否成功：选择任意目录，右击，选择<strong>Git Bash Here</strong>选项，输入<strong>node -v</strong> 返回版本即安装成功，如图：</p>
+<p><img src="https://i.loli.net/2020/02/27/FgIlx2uhYCm9VjP.png" alt="node.png"></p>
+<h4 id="2-3-HexoEditor-编辑器安装"><a href="#2-3-HexoEditor-编辑器安装" class="headerlink" title="2.3 HexoEditor 编辑器安装"></a>2.3 HexoEditor 编辑器安装</h4><p><strong>安装文件：</strong>Z:\myblog\HexoEditor.zip<br>解压文件到当前文件夹，进入HexoEditor目录，找到<strong>start.cmd</strong>文件，依次点击【<strong>右击</strong>】【<strong>发送到</strong>】【<strong>桌面快捷方式</strong>】，这时候桌面已经生成快捷方式，我们双击打开（稍等片刻），点击左下角图标打开后如下图：</p>
+<p><img src="https://i.loli.net/2020/02/27/g31UuTqKMEhGBRl.png" alt="博客编辑器"></p>
+<p>这就是我们以后写博客的编辑器了，后面会详细介绍如何使用。</p>
+<h4 id="2-4-解压blog-zip"><a href="#2-4-解压blog-zip" class="headerlink" title="2.4 解压blog.zip"></a>2.4 解压blog.zip</h4><p>右击文件，选择解压到当前文件夹即可。该压缩包也就是我的博客的原型。<br>现在的目录是这样子的：</p>
+<p><img src="https://i.loli.net/2020/02/27/qw5RCUukhaJWS6D.png" alt=""></p>
+<h4 id="2-5-安装模块"><a href="#2-5-安装模块" class="headerlink" title="2.5 安装模块"></a>2.5 安装模块</h4><p>进入<strong>Z:\myblog\blog</strong>，右击选择<strong>Git Bash Here</strong>选项，复制粘贴至命令行以执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli;npm install hexo-deployer-git --save;npm install hexo-generator-archive --save;npm install hexo-generator-category --save;npm install hexo-generator-feed --save;npm install hexo-generator-index-pin-top --save;npm install hexo-generator-searchdb --save;npm install hexo-generator-tag --save;npm install hexo-lazyload-image --save;npm install hexo-related-popular-posts --save;npm install hexo-renderer-ejs --save;npm install hexo-renderer-marked --save;npm install hexo-renderer-stylus --save;npm install hexo-server --save;npm install hexo-symbols-count-time --save;npm install hexo-tag-cloud</span><br></pre></td></tr></table></figure>
+
+<p>这个过程需要等待一点时间，请耐心等待。</p>
+<h3 id="3-Pages-服务启动"><a href="#3-Pages-服务启动" class="headerlink" title="3. Pages 服务启动"></a>3. Pages 服务启动</h3><h4 id="3-1-码云注册"><a href="#3-1-码云注册" class="headerlink" title="3.1 码云注册"></a>3.1 码云注册</h4><p>先登陆码云注册平台<a href="https://gitee.com/signup" target="_blank" rel="noopener">https://gitee.com/signup</a> 注册一个账号，这里你需要一个属于自己的邮箱账号进行注册。<br>填写姓名，默认个人空间名默认是姓名，请保持一致，填写邮箱，验证码，密码完成注册。如图：</p>
+<p><img src="https://i.loli.net/2020/02/27/e8dDZiN7lRzB2KT.png" alt="码云账号注册"></p>
+<h4 id="3-2-绑定手机号"><a href="#3-2-绑定手机号" class="headerlink" title="3.2 绑定手机号"></a>3.2 绑定手机号</h4><p>完成注册我们进入码云主页面，点击右上角头像，依次选择【<strong>设置</strong>】【<strong>绑定号码</strong>】完成手机号绑定。如图：</p>
+<p><img src="https://i.loli.net/2020/02/27/3AK86S4fup7vgoz.png" alt=""></p>
+<p>显示如下说明绑定成功！</p>
+<p><img src="https://i.loli.net/2020/02/27/d9F8krp4AJY2aTs.png" alt=""></p>
+<h4 id="3-3-新建仓库"><a href="#3-3-新建仓库" class="headerlink" title="3.3 新建仓库"></a>3.3 新建仓库</h4><p>不懂没关系，按图操作即可。可以简单理解为新建一个项目。<br>点击右上角 <strong>+</strong> 号，选择【<strong>新建仓库</strong>】，按下图进行操作：</p>
+<p><img src="https://i.loli.net/2020/02/27/ebK9V8jtoMClsBy.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/02/27/JyrpmUSXAQ5kf2l.png" alt=""></p>
+<p>点击创建即可，至此仓库创建完毕。</p>
+<h4 id="3-4-开启Pages服务"><a href="#3-4-开启Pages服务" class="headerlink" title="3.4 开启Pages服务"></a>3.4 开启Pages服务</h4><p>我们的博客要想正常运行，需要托管在此服务上。创建仓库完毕后页面会自动跳转至仓库页面，如下图。我们选择【<strong>服务</strong>】【<strong>Gitee Pages</strong>】【<strong>启动</strong>】，启动完毕后记得选择免费试用一个月（免部署），并记好自己的博客地址哦！</p>
+<p><img src="https://i.loli.net/2020/02/27/9xOb3yNdKXvjBLP.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/02/27/9qM4hrYOlUwetgu.png" alt=""></p>
+<p>一个月到期后，如果我们更新博文，需要到这里重新部署服务才会更新哦~</p>
+<p><img src="https://i.loli.net/2020/02/27/rKRpAlae7Ygf2zI.png" alt=""></p>
+<p>下面我们访问一下自己的博客地址看看丑不丑吧！哈哈哈~</p>
+<p><img src="https://i.loli.net/2020/02/27/SmulBRfKshApwnG.png" alt=""></p>
+<p>这就是我们的初始页面，相当丑，下面我们就来美化一下它，将我自己的博客模板套上去。</p>
+<h3 id="4-博客换装"><a href="#4-博客换装" class="headerlink" title="4. 博客换装"></a>4. 博客换装</h3><h4 id="4-1-设置头像"><a href="#4-1-设置头像" class="headerlink" title="4.1 设置头像"></a>4.1 设置头像</h4><p>替换以下图片为自己的头像，建议图片不要太大。<br><strong>Z:\myblog\blog\themes\next\source\images\avatar.gif</strong></p>
+<h4 id="4-2-修改博客配置"><a href="#4-2-修改博客配置" class="headerlink" title="4.2 修改博客配置"></a>4.2 修改博客配置</h4><p>打开博客配置文件：<strong>Z:\myblog\blog_config.yml</strong><br>1） 更改为自己的博客名称、描述、作者。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 请填写博客名称</span><br><span class="line">description: &#39;请填写博客描述&#39;</span><br><span class="line">author: 请填写作者名</span><br></pre></td></tr></table></figure>
+
+<p>2） 将所有的 <strong>‘yoursite’</strong> 替换为你的仓库名，例如我的仓库名为：<strong>‘luckyzpb’</strong>。<br>3） 保存文件，关闭文件。</p>
+<h3 id="5-部署博客"><a href="#5-部署博客" class="headerlink" title="5. 部署博客"></a>5. 部署博客</h3><p>最后，我们需要将我的博客模板部署到Gitee Pages上，现在我们回到目录 <strong>Z:\myblog\blog</strong> , 右击，选择<strong>Git Bash Here</strong>选项，依次输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global credential.helper store</span><br><span class="line"># 需替换为你注册码云时的用户名，如luckyzpb</span><br><span class="line">$ git config --global user.name &quot;Your&#39;s name&quot;</span><br><span class="line"># 需替换为你注册码云时的邮箱</span><br><span class="line">$ git config --global user.email &quot;Your&#39;s email address&quot;</span><br><span class="line">$ hexo clean;hexo g;hexo d</span><br></pre></td></tr></table></figure>
+<p>第一次需要输入注册码云时的用户名和密码。部署完毕我们就可以访问我们的博客了，这样属于自己的一个博客系统或个人主页就做好了。</p>
+<p><strong>注：上文说的试用期一个月结束之后，我们需进入码云个人仓库Pages页面点击【</strong>更新<strong>】按钮手动部署。</strong></p>
+<p>换装后的博客：</p>
+<p><img src="https://i.loli.net/2020/02/27/971ihITGP8OwWSu.png" alt=""></p>
+<h3 id="6-更新博文"><a href="#6-更新博文" class="headerlink" title="6. 更新博文"></a>6. 更新博文</h3><p>最后说一下HexoEditor工具的使用。打开HexoEditor，点击左下角，点击新建Post，然后就可以写文章了。如图：</p>
+<p><img src="https://i.loli.net/2020/02/27/YoegVCOFdLQtDTs.png" alt=""></p>
+<p>写完文章后，ctrl+s 保存。右键选择【Hexo】【一键部署】新写的文章就发布到我们的博客咯~ </p>
+<h3 id="7-最后声明"><a href="#7-最后声明" class="headerlink" title="7. 最后声明"></a>7. 最后声明</h3><p>虽然是小白式教程，但是还是希望大家可以私下里自己了解一些基本概念，比如：Gitee Pages、Hexo、NexT、Git、Node.js，相信自己可以做出更加漂亮的博客~</p>
+<p>如果觉得不错就分享给自己的朋友们吧~ 如果有任何问题，可以进入我的个人公众号【<strong>chan-ke</strong>】依次点击【<strong>点我</strong>】【<strong>加我好友</strong>】添加我的个人微信为您答疑解惑~</p>
+<p><img src="https://i.loli.net/2020/02/27/1qh4UJ3l8rKNzMY.jpg" alt=""></p>
+<p>关注公众号可查阅更多精彩文章▲</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">推荐文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\02\24\解惑大学生：计算机专业毕业以后都干嘛？\" rel="bookmark">解惑大学生：计算机专业毕业以后都干嘛？</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\02\24\全方位认识HBase：一个值得拥有的NoSQL数据库（一）\" rel="bookmark">全方位认识HBase：一个值得拥有的NoSQL数据库（一）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\02\05\Apache-Kylin-1.0中的混合模型\" rel="bookmark">Apache Kylin 1.0中的混合模型</a></div>
+    </li>
+  </ul>
+<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+        -------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------
+        </div>
+    
+</div>
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="zhou.pengbo 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="zhou.pengbo 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>zhou.pengbo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zhoupengbo.gitee.io/2020/02/27/2020%EF%BC%8C%E6%90%9E%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%8E%A9%E7%8E%A9%EF%BC%81%EF%BC%88%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B%EF%BC%89/" title="2020，搞个属于自己的博客玩玩！（小白教程）">https://zhoupengbo.gitee.io/2020/02/27/2020，搞个属于自己的博客玩玩！（小白教程）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>(๑`･ᴗ･´๑)为方便学习交流，您可以扫码加我微信或关注我的公众号(๑`･ᴗ･´๑)</p>
+
+    <div class="social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_public.jpg">
+                <span class="icon">
+                  <i class="fa fa-users"></i>
+                </span>
+
+                <span class="label">漫泊今生 扶垚而上</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-handshake-o"></i>
+                </span>
+
+                <span class="label">加我好友，成为朋友</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_public_hbase.jpg">
+                <span class="icon">
+                  <i class="fa fa-users"></i>
+                </span>
+
+                <span class="label">HBase工作笔记</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/2020/" rel="tag"><i class="fa fa-tag"></i> 2020</a>
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/Gitee-Pages/" rel="tag"><i class="fa fa-tag"></i> Gitee Pages</a>
+              <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="tag"><i class="fa fa-tag"></i> 个人博客</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/24/%E8%A7%A3%E6%83%91%E5%A4%A7%E5%AD%A6%E7%94%9F%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E6%AF%95%E4%B8%9A%E4%BB%A5%E5%90%8E%E9%83%BD%E5%B9%B2%E5%98%9B%EF%BC%9F/" rel="prev" title="解惑大学生：计算机专业毕业以后都干嘛？">
+      <i class="fa fa-chevron-left"></i> 解惑大学生：计算机专业毕业以后都干嘛？
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-部署环境介绍"><span class="nav-number">1.</span> <span class="nav-text">一. 部署环境介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-基础环境安装"><span class="nav-number">2.</span> <span class="nav-text">二. 基础环境安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-软件包下载"><span class="nav-number">2.1.</span> <span class="nav-text">1. 软件包下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-软件包安装"><span class="nav-number">2.2.</span> <span class="nav-text">2. 软件包安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Git-安装"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 Git 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Node-js-安装"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 Node.js 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-HexoEditor-编辑器安装"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.3 HexoEditor 编辑器安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-解压blog-zip"><span class="nav-number">2.2.4.</span> <span class="nav-text">2.4 解压blog.zip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-安装模块"><span class="nav-number">2.2.5.</span> <span class="nav-text">2.5 安装模块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Pages-服务启动"><span class="nav-number">2.3.</span> <span class="nav-text">3. Pages 服务启动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-码云注册"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 码云注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-绑定手机号"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 绑定手机号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-新建仓库"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3 新建仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-开启Pages服务"><span class="nav-number">2.3.4.</span> <span class="nav-text">3.4 开启Pages服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-博客换装"><span class="nav-number">2.4.</span> <span class="nav-text">4. 博客换装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-设置头像"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 设置头像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-修改博客配置"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 修改博客配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-部署博客"><span class="nav-number">2.5.</span> <span class="nav-text">5. 部署博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-更新博文"><span class="nav-number">2.6.</span> <span class="nav-text">6. 更新博文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-最后声明"><span class="nav-number">2.7.</span> <span class="nav-text">7. 最后声明</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhou.pengbo"
+      src="/images/avatar2.jpg">
+  <p class="site-author-name" itemprop="name">zhou.pengbo</p>
+  <div class="site-description" itemprop="description">怀敬畏心，做踏实人。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhoupengbo" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhoupengbo" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhoupengbo0413@163.com" title="E-Mail → mailto:zhoupengbo0413@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhou.pengbo</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">21k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">19 分钟</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: '7tx6szwJsFP4jdJxU0ky5jO1-gzGzoHsz',
+      appKey: 'wpEQw0WE9r0J61zL9z2lYYfL',
+      placeholder: "快来评论一个吧~",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: true,
+      lang: 'zh-cn' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
+
